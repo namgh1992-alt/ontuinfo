@@ -1,0 +1,1598 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="남관희 선생님 강의 프로필 · 교사의 관점에서 AI, 그 노하우를 나눕니다">
+<meta property="og:title" content="남관희 선생님 강의 프로필">
+<meta property="og:description" content="교사의 관점에서 AI, 그 노하우를 나눕니다">
+<meta property="og:image" content="shots/logo.png">
+<link rel="icon" href="shots/logo.png">
+<title>남관희 선생님 강의 프로필</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@300;400;500;600;700&family=Noto+Serif+KR:wght@400;500&display=swap">
+<style>
+/* Layout: 증권사 리서치 리포트 양식. 러닝 헤더 → 검정 표지 블록 + 회색 사이드바 + 본문, 얇은 괘선 표, 브론즈 소제목. 도표 번호(Fig.)는 쓰지 않음. */
+:root{
+  --bg:#ECECEA; --paper:#FFFFFF; --ink:#151515; --muted:#6C6C6C; --line:#CDCDCD; --rule:#3A3A3A;
+  --side:#E6E6E6; --black:#141414; --black-ink:#F3F3F3; --bronze:#A2825A; --bronze-hi:#C7A877;
+  --tint:#DBE7F3; --tint-ink:#1A2A3A; --ok:#2F6B4F; --warn:#A5473A; --soft:#F3F3F1;
+  --f-sans:"IBM Plex Sans KR",-apple-system,"Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif;
+  --f-serif:"Noto Serif KR","AppleMyungjo","Batang",serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0D0D0D; --paper:#171717; --ink:#ECECEC; --muted:#A3A3A3; --line:#3A3A3A; --rule:#D0D0D0;
+  --side:#202020; --black:#050505; --black-ink:#F3F3F3; --bronze:#C3A173; --bronze-hi:#D6B98C;
+  --tint:#1F2D3B; --tint-ink:#DCE8F4; --ok:#71B794; --warn:#E28E7E; --soft:#1F1F1F; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0D0D0D; --paper:#171717; --ink:#ECECEC; --muted:#A3A3A3; --line:#3A3A3A; --rule:#D0D0D0;
+  --side:#202020; --black:#050505; --black-ink:#F3F3F3; --bronze:#C3A173; --bronze-hi:#D6B98C;
+  --tint:#1F2D3B; --tint-ink:#DCE8F4; --ok:#71B794; --warn:#E28E7E; --soft:#1F1F1F; color-scheme:dark}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-sans);font-size:15px;line-height:1.65;font-weight:400;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:24px 48px}
+.wrap{max-width:560px;margin:0 auto;background:var(--paper);padding:22px max(16px,3.5vw) 32px;display:flex;flex-direction:column;gap:34px;box-shadow:0 1px 0 var(--line)}
+h1,h2,h3{text-wrap:balance;margin:0}
+h2{font-size:18px;font-weight:600;letter-spacing:-.01em}
+.eyebrow{font-size:14px;font-weight:500;color:var(--bronze)}
+section{display:flex;flex-direction:column;gap:12px}
+.sec-head{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap;border-bottom:1.5px solid var(--rule);padding-bottom:7px}
+.sec-head small{font-size:12px;color:var(--muted)}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--bronze);outline-offset:2px}
+.note{font-size:13px;color:var(--muted);margin:0}
+.num{font-variant-numeric:tabular-nums}
+
+/* 러닝 헤더 · 푸터 */
+.runhead{display:flex;justify-content:flex-end;gap:8px;font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink);margin-bottom:-14px}
+.runhead i{font-style:normal;color:var(--muted)}
+footer{display:flex;justify-content:flex-end;gap:8px;font-size:12px;color:var(--ink);border-top:1px solid var(--line);padding-top:12px}
+footer i{font-style:normal;color:var(--muted)}
+
+/* 프로필 카드 (리틀리형) */
+.board{background:var(--black);color:var(--black-ink);border-radius:16px;padding:24px 22px 22px;display:flex;flex-direction:column}
+.board-top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
+.avatar{flex:none;width:72px;height:72px;border-radius:50%;background:#FFFFFF;display:grid;place-items:center;overflow:hidden;box-shadow:0 0 0 2px var(--bronze-hi)}
+.avatar img{width:88%;height:88%;object-fit:contain;display:block}
+.status{display:inline-flex;align-items:center;gap:6px;font-size:11.5px;border:1px solid rgba(255,255,255,.25);border-radius:999px;padding:4px 10px;white-space:nowrap}
+.status i{width:7px;height:7px;border-radius:50%;background:var(--bronze-hi)}
+.school{font-size:12px;opacity:.7;margin-top:16px;letter-spacing:.02em}
+.name{font-size:36px;font-weight:700;letter-spacing:-.02em;line-height:1.15;margin-top:2px}
+.tagline{margin:4px 0 0;color:var(--bronze-hi);font-size:16px;padding-bottom:12px;border-bottom:1px solid rgba(199,168,119,.55)}
+.lead{margin:14px 0 0;font-size:14.5px;line-height:1.75;opacity:.9}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin:14px 0 0;padding:0;list-style:none}
+.chips li{font-size:12px;padding:3px 10px;border:1px solid rgba(255,255,255,.25);border-radius:999px}
+.career{margin-top:18px;padding-top:14px;border-top:1px dashed rgba(255,255,255,.22)}
+.career-h{font-size:12px;letter-spacing:.06em;color:var(--bronze-hi);margin-bottom:8px}
+.career dl{margin:0;display:grid;grid-template-columns:40px 1fr;gap:7px 12px}
+.career dt{font-size:12px;color:var(--bronze-hi);padding-top:2px}
+.career dd{margin:0;font-size:13.5px;line-height:1.5;min-width:0}
+.career dd small{display:block;opacity:.65;font-size:12px}
+.cta-row{display:flex;gap:8px;margin-top:20px;flex-wrap:wrap}
+.board .btn{border-radius:10px}
+.board .btn-chalk{background:var(--bronze-hi);border-color:var(--bronze-hi);color:#141414}
+.board .btn-ghost{color:var(--black-ink);border-color:rgba(255,255,255,.35)}
+
+/* 버튼 */
+.btn{appearance:none;border:1px solid var(--ink);cursor:pointer;font:500 14.5px/1 var(--f-sans);padding:13px 18px;border-radius:2px;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:6px;background:var(--ink);color:var(--paper)}
+.btn:hover{opacity:.88}
+.btn-chalk{flex:1 1 170px}
+.btn-ghost{background:transparent;color:var(--ink);flex:1 1 140px}
+.btn-line{background:transparent;color:var(--ink);border-color:var(--line);padding:10px 14px;font-size:13.5px}
+.btn-sm{padding:8px 12px;font-size:12.5px}
+.btn-submit{width:100%;padding:16px}
+.btn-submit[disabled]{opacity:.5;cursor:default}
+
+/* 바로가기 (리틀리형 버튼) */
+.links{display:flex;flex-direction:column;gap:10px}
+.link{display:flex;align-items:center;gap:14px;background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:13px 15px;text-decoration:none;color:var(--ink);font:inherit;text-align:left;width:100%;cursor:pointer;transition:border-color .15s,transform .15s}
+.link:hover{border-color:var(--bronze);transform:translateY(-1px)}
+.link .ico{flex:none;width:34px;height:34px;border-radius:9px;display:grid;place-items:center;background:var(--side)}
+.link .ico svg{width:17px;height:17px;stroke:var(--ink);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.link b{display:block;font-weight:600;font-size:14.5px}
+.link small{color:var(--muted);font-size:12.5px}
+.link .arr{margin-left:auto;color:var(--bronze)}
+.link-lock{border-style:dashed;background:transparent}
+
+.prose p{margin:0;max-width:66ch;font-family:var(--f-serif);font-size:14.5px;line-height:1.8}
+
+/* 표 */
+.tbl-wrap{overflow-x:auto}
+.rtable{width:100%;border-collapse:collapse;font-size:13.5px}
+.rtable thead th{background:var(--side);font-weight:500;text-align:left;padding:8px 10px;border-top:1.5px solid var(--rule);border-bottom:1px solid var(--line);font-size:12.5px}
+.rtable td{padding:11px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+.rtable td.key{background:var(--tint);color:var(--tint-ink);font-weight:600;width:34%}
+.rtable td small{display:block;color:var(--muted);font-size:12px;margin-top:3px;font-weight:400}
+.rtable td.key small{color:inherit;opacity:.75}
+  .rtable thead{display:none}
+  .rtable tr{display:block;border-bottom:1px solid var(--line);border-top:0}
+  .rtable td{display:block;border:0;padding:4px 10px}
+  .rtable td.key{width:auto;padding:9px 10px;margin-top:8px}
+  .rtable td[data-l]::before{content:attr(data-l);display:inline-block;min-width:64px;color:var(--muted);font-size:12px}
+  .rtable tbody{border-top:1.5px solid var(--rule);display:block}
+.sub{list-style:none;padding:0;margin:4px 0 0;display:flex;flex-wrap:wrap;gap:4px 12px}
+.sub li{font-size:12.5px;color:var(--muted)}
+.sub li::before{content:"· ";color:var(--bronze)}
+
+/* 폼 */
+.form-card{background:var(--paper);border-top:1.5px solid var(--rule);border-bottom:1px solid var(--line);padding:18px 0;display:flex;flex-direction:column;gap:16px}
+.field{display:flex;flex-direction:column;gap:6px;min-width:0}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media (max-width:480px){.row{grid-template-columns:1fr}}
+label,.lbl{font-size:12.5px;font-weight:500}
+.req{color:var(--bronze);margin-left:2px}
+input[type=text],input[type=email],input[type=tel],input[type=number],input[type=password],input[type=time],select,textarea{width:100%;font:15px var(--f-sans);color:var(--ink);background:var(--paper);border:1px solid var(--line);border-radius:2px;padding:10px 11px}
+textarea{min-height:110px;resize:vertical}
+input:focus,select:focus,textarea:focus{outline:1.5px solid var(--bronze);outline-offset:0;border-color:var(--bronze)}
+.pills{display:flex;flex-wrap:wrap;gap:6px}
+.pill{position:relative}
+.pill input{position:absolute;opacity:0;inset:0}
+.pill span{display:inline-block;font-size:13px;padding:7px 11px;border:1px solid var(--line);border-radius:2px;cursor:pointer;background:var(--paper)}
+.pill input:checked+span{background:var(--tint);color:var(--tint-ink);border-color:var(--tint-ink)}
+.pill input:focus-visible+span{outline:2px solid var(--bronze);outline-offset:2px}
+.agree{display:flex;gap:8px;align-items:flex-start;font-size:12.5px;color:var(--muted);font-weight:400}
+.agree input{margin-top:3px}
+.err{color:var(--warn);font-size:13px;margin:0}
+.ok{color:var(--ok);font-size:13px;margin:0}
+.done{background:var(--side);padding:16px;display:flex;flex-direction:column;gap:8px;border-left:3px solid var(--bronze)}
+.done b{font-size:15px}
+.copybox{font-size:12.5px;white-space:pre-wrap;background:var(--paper);border:1px solid var(--line);padding:12px;max-height:220px;overflow:auto;user-select:all}
+.btn-row{display:flex;gap:6px;flex-wrap:wrap}
+
+/* 달력 */
+.cal-box{border:1px solid var(--line);padding:12px;display:flex;flex-direction:column;gap:12px;background:var(--paper)}
+.cal{display:flex;flex-direction:column;gap:6px}
+.cal-head{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.cal-head b{font-weight:600;font-size:16px;font-variant-numeric:tabular-nums}
+.cal-nav{appearance:none;border:1px solid var(--line);background:var(--paper);color:var(--ink);width:34px;height:34px;border-radius:2px;cursor:pointer;font-size:15px}
+.cal-nav:disabled{opacity:.35;cursor:default}
+.cal-grid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:3px}
+.cal-dow{background:var(--side);font-size:11.5px;color:var(--ink);text-align:center;padding:4px 0;border-top:1.5px solid var(--rule)}
+.cal-dow.sun{color:var(--warn)}
+.day{appearance:none;border:1px solid transparent;background:transparent;color:var(--muted);border-radius:0;aspect-ratio:1/1;max-width:100%;min-width:0;font:400 14px var(--f-sans);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;padding:0;font-variant-numeric:tabular-nums;cursor:default}
+.day:disabled{opacity:.4}
+.day.blank{visibility:hidden}
+.day.clickable{cursor:pointer;color:var(--ink)}
+.day.open{background:var(--paper);border-color:var(--line);color:var(--ink);font-weight:500}
+.day.clickable:hover{border-color:var(--ink)}
+.day.today{box-shadow:inset 0 0 0 1.5px var(--bronze)}
+.day.sel{background:var(--tint);color:var(--tint-ink);border-color:var(--tint-ink)}
+.day .mk{font-size:10px;line-height:1;color:var(--bronze);font-weight:600}
+.day.sel .mk{color:var(--tint-ink)}
+.day .bk{width:14px;height:3px;background:var(--bronze)}
+.slot-area{display:flex;flex-direction:column;gap:8px;border-top:1px dotted var(--muted);padding-top:12px}
+.slots{display:flex;flex-wrap:wrap;gap:6px}
+.slot{appearance:none;font:500 14px var(--f-sans);padding:7px 12px;border-radius:2px;border:1px solid var(--line);background:var(--paper);color:var(--ink);cursor:pointer;font-variant-numeric:tabular-nums}
+.slot.on{background:var(--tint);color:var(--tint-ink);border-color:var(--tint-ink)}
+.slot.booked{background:var(--bronze);color:#fff;border-color:var(--bronze);cursor:not-allowed}
+.slot.taken{text-decoration:line-through;opacity:.5;cursor:not-allowed}
+.legend{display:flex;flex-wrap:wrap;gap:12px;font-size:11.5px;color:var(--muted)}
+.legend i{display:inline-block;width:10px;height:10px;margin-right:5px;vertical-align:-1px}
+
+/* 문의함 진입 · 관리 */
+.gate{background:var(--side);padding:16px;display:flex;flex-direction:column;gap:10px}
+.adm-top{display:flex;justify-content:space-between;align-items:flex-end;gap:10px;flex-wrap:wrap;border-bottom:2px solid var(--bronze);padding-bottom:10px}
+.adm-top h2{font-size:26px;font-weight:700}
+.adm-actions{display:flex;gap:6px}
+.tabs{display:flex;gap:0;border-bottom:1.5px solid var(--rule)}
+.tab{appearance:none;background:none;border:0;padding:9px 16px;font:500 14px var(--f-sans);color:var(--muted);cursor:pointer}
+.tab[aria-selected=true]{color:var(--black-ink);background:var(--black)}
+.counts{display:flex;gap:0;flex-wrap:wrap;border:1px solid var(--line)}
+.count{font-size:12px;padding:6px 12px;border-right:1px solid var(--line);font-variant-numeric:tabular-nums}
+.inq{border-bottom:1px solid var(--line);padding:12px 0 12px 12px;display:flex;flex-direction:column;gap:3px}
+.inq-top{display:flex;justify-content:space-between;gap:8px;align-items:center}
+.inq-top b{min-width:0;overflow-wrap:anywhere}
+.inq select{width:auto;padding:5px 8px;font-size:12.5px}
+.inq p{margin:0;font-size:13px;color:var(--muted);overflow-wrap:anywhere}
+.inq .when{font-size:13px;color:var(--ink);font-weight:500}
+.st-new{border-left:3px solid var(--bronze)}
+.st-contacted{border-left:3px solid var(--tint-ink)}
+.st-confirmed{border-left:3px solid var(--ink)}
+.st-closed{border-left:3px solid var(--line);opacity:.65}
+.day-panel{display:flex;flex-direction:column;gap:10px}
+.day-panel h3{font-size:16px;font-weight:600}
+.add-time{display:flex;gap:6px;align-items:center}
+.add-time input{width:130px}
+details summary{cursor:pointer;font-size:13px;font-weight:500}
+
+
+/* 강의 주제 카드 */
+.tcards{display:flex;flex-direction:column;gap:12px}
+.tcard{position:relative;background:var(--black);color:var(--black-ink);border-radius:14px;padding:18px 18px 16px;display:flex;flex-direction:column;gap:8px;transition:transform .15s}
+.tcard:hover{transform:translateY(-1px)}
+.tcard .tmeta{font-size:11.5px;color:var(--bronze-hi);letter-spacing:.03em}
+.tcard h3{font-size:17.5px;font-weight:700;line-height:1.4}
+.tcard-link{color:inherit;text-decoration:none}
+.tcard-link::after{content:"";position:absolute;inset:0;border-radius:14px}
+.tcard-link:focus-visible{outline:none}
+.tcard-link:focus-visible::after{outline:2px solid var(--bronze-hi);outline-offset:2px}
+.tcard p{margin:0;font-size:13.5px;line-height:1.65;color:rgba(243,243,243,.78)}
+.tcard .trel{font-size:12px;color:var(--bronze-hi);opacity:.9}
+.tfoot{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:6px;padding-top:12px;border-top:1px solid rgba(199,168,119,.35)}
+.tmore{font-size:12.5px;color:rgba(243,243,243,.7)}
+.tbook{position:relative;z-index:2;background:var(--bronze-hi);color:#141414;text-decoration:none;font-weight:600;font-size:13.5px;padding:9px 14px;border-radius:8px;white-space:nowrap}
+.tbook:hover{filter:brightness(1.06)}
+.t-hero{background:var(--black);color:var(--black-ink);border-radius:14px;padding:22px 20px;display:flex;flex-direction:column;gap:8px}
+.t-hero .tmeta{font-size:12px;color:var(--bronze-hi)}
+.t-hero h1{font-size:clamp(26px,6vw,32px);font-weight:700;line-height:1.2;letter-spacing:-.02em}
+.t-hero .tsub{margin:0;color:var(--bronze-hi);font-size:15.5px;padding-bottom:12px;border-bottom:1px solid rgba(199,168,119,.5)}
+.t-hero .d-lead{color:rgba(243,243,243,.88)}
+.t-hero .tbook{align-self:flex-end;margin-top:6px}
+.for-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
+.for-list li{background:var(--side);padding:10px 14px;font-size:14px;border-left:3px solid var(--bronze)}
+
+
+/* RAS ART */
+.ras{display:inline-block;align-self:flex-start;background:var(--black);color:var(--bronze-hi);font-size:11px;font-weight:700;letter-spacing:.1em;padding:4px 9px;border-radius:4px}
+.artmap{background:var(--black);color:var(--black-ink);border-radius:14px;padding:18px 18px 6px;gap:6px}
+.artmap h2{font-size:18px;color:var(--black-ink)}
+.am-k{font-size:11.5px;letter-spacing:.06em;color:var(--bronze-hi);font-weight:600}
+.arow{display:grid;grid-template-columns:84px minmax(0,1fr);gap:12px;padding:13px 0;border-top:1px solid rgba(199,168,119,.3)}
+.arow b{color:var(--bronze-hi);font-size:15px}
+.arow p{margin:0 0 6px;font-size:14px;line-height:1.6}
+.arow dl{margin:0;display:grid;grid-template-columns:76px minmax(0,1fr);gap:3px 8px;font-size:12.5px}
+.arow dt{color:rgba(243,243,243,.55)}
+.arow dd{margin:0;color:rgba(243,243,243,.85)}
+.relcard{display:flex;flex-direction:column;gap:5px;background:var(--black);color:var(--black-ink);border-radius:14px;padding:16px 18px;text-decoration:none;border:1px solid var(--bronze-hi)}
+.relcard b{font-size:17px}
+.relcard p{margin:0;font-size:13.5px;color:rgba(243,243,243,.8);line-height:1.6}
+.relcard .tmore{align-self:flex-end;color:var(--bronze-hi)}
+.relcard:hover{transform:translateY(-1px)}
+
+
+/* 강의 미리보기 */
+.facts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line)}
+.facts div{background:var(--paper);padding:11px 13px}
+.facts small{display:block;font-size:11.5px;color:var(--bronze)}
+.facts b{font-size:14.5px;font-weight:600}
+.chaps{display:flex;flex-direction:column;gap:28px}
+.chap{display:flex;flex-direction:column;gap:10px;padding-bottom:24px;border-bottom:1px solid var(--line)}
+.chap-head{display:flex;align-items:baseline;gap:12px}
+.chap-n{font-size:30px;font-weight:700;color:var(--bronze);line-height:1;font-variant-numeric:tabular-nums}
+.chap h3{font-size:18px;font-weight:700;line-height:1.35}
+.chap p{margin:0;font-family:var(--f-serif);font-size:14.5px;line-height:1.8}
+.slide{margin:0;display:flex;flex-direction:column;gap:6px}
+.slide img{display:block;width:100%;height:auto;border:1px solid var(--line);border-radius:8px;cursor:zoom-in;box-shadow:0 6px 18px rgba(0,0,0,.08)}
+.slide figcaption{font-size:12.5px;color:var(--muted)}
+.slide.closing figcaption{font-size:14px;color:var(--ink);font-weight:500}
+.mission{background:var(--black);color:var(--black-ink);border-radius:10px;padding:11px 14px;font-size:14px}
+.mission span{display:inline-block;color:var(--bronze-hi);font-weight:700;font-size:12px;margin-right:8px;letter-spacing:.04em}
+.locks{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.lk{font-size:11.5px;font-weight:700;color:var(--bronze);margin-right:2px}
+.lock{font-size:12.5px;padding:4px 10px 4px 24px;border:1px dashed var(--bronze);border-radius:999px;position:relative;color:var(--ink)}
+.lock::before{content:"";position:absolute;left:9px;top:50%;width:8px;height:7px;margin-top:-2px;border-radius:1.5px;background:var(--bronze)}
+.lock::after{content:"";position:absolute;left:10px;top:50%;width:6px;height:6px;margin-top:-7px;border:1.5px solid var(--bronze);border-bottom:0;border-radius:4px 4px 0 0;box-sizing:border-box}
+
+
+/* ===== 홈 (리틀리형, 어두운 바탕) ===== */
+.home{--bg:#141414;--paper:#1c1c1c;--ink:#F1F1EE;--muted:#A9A9A4;--line:#333;--rule:#5a5a5a;--side:#242424;--tint:#2a3440;--tint-ink:#DCE8F4;--soft:#242424;--warn:#E28E7E;--ok:#71B794;
+  background:#111;color:var(--ink);max-width:480px;gap:26px;padding:26px 18px 30px;box-shadow:none;border-radius:0}
+.home a{color:inherit}
+.hero{display:flex;flex-direction:column;align-items:center;text-align:center;gap:6px;padding-top:6px}
+.hero-mark{width:116px;height:116px;border-radius:50%;overflow:hidden;background:#fff;display:grid;place-items:center;box-shadow:0 0 0 3px var(--bronze-hi);margin-bottom:10px}
+.hero-mark img{width:86%;height:86%;object-fit:contain}
+.hero-name{font-size:40px;font-weight:700;letter-spacing:-.02em;line-height:1.1}
+.hero-tag{margin:0;color:var(--bronze-hi);font-size:16px;font-weight:500}
+.hero-school{margin:0;font-size:12.5px;color:var(--muted)}
+.hero-icons{display:flex;gap:18px;margin-top:14px}
+.hero-icons a{display:flex;flex-direction:column;align-items:center;gap:5px;text-decoration:none;font-size:11.5px;color:var(--muted)}
+.hero-icons svg{width:22px;height:22px;stroke:#F1F1EE;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;padding:12px;box-sizing:content-box;border:1px solid #3a3a3a;border-radius:50%;transition:border-color .15s}
+.hero-icons a:hover svg{border-color:var(--bronze-hi)}
+.hsec{display:flex;flex-direction:column;gap:12px}
+.hhead{display:flex;align-items:baseline;gap:10px}
+.hhead h2{font-size:17px;font-weight:700}
+.hlabel{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--bronze-hi);display:inline-flex;align-items:center;gap:6px}
+.hlabel::before{content:"";width:7px;height:7px;background:var(--bronze-hi);border-radius:2px}
+.drop{background:#1c1c1c;border:1px solid #2e2e2e;border-radius:14px;overflow:hidden}
+.drop+.drop{margin-top:-2px}
+.drop summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:12px;padding:15px 16px}
+.drop summary::-webkit-details-marker{display:none}
+.drop summary b{font-size:15px;font-weight:600;flex:1}
+.drop summary i{width:9px;height:9px;border-right:2px solid var(--bronze-hi);border-bottom:2px solid var(--bronze-hi);transform:rotate(45deg) translate(-2px,-2px);transition:transform .2s}
+.drop[open] summary i{transform:rotate(-135deg) translate(-2px,-2px)}
+.drop-body{padding:0 16px 16px;display:flex;flex-direction:column;gap:12px}
+.drop-cta{border-color:var(--bronze-hi)}
+.drop-cta summary{background:var(--bronze-hi);color:#141414}
+.drop-cta summary .hlabel{color:#141414}.drop-cta summary .hlabel::before{background:#141414}
+.drop-cta summary i{border-color:#141414}
+.drop-cta[open] .drop-body{padding-top:16px}
+.home .prose p{font-family:var(--f-sans);font-size:14px;line-height:1.75;color:#d6d6d2}
+.cv{margin:0;display:grid;grid-template-columns:40px 1fr;gap:8px 12px}
+.cv dt{font-size:12px;color:var(--bronze-hi);padding-top:2px}
+.cv dd{margin:0;font-size:13.5px;line-height:1.5;min-width:0}
+.cv dd small{display:block;color:var(--muted);font-size:12px}
+.carousel{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:12px;scrollbar-width:none;border-radius:14px}
+.carousel::-webkit-scrollbar{display:none}
+.slide-card{flex:0 0 100%;scroll-snap-align:start;position:relative;border-radius:14px;overflow:hidden;aspect-ratio:4/3;max-width:100%;text-decoration:none;background:#222}
+.slide-card img{width:100%;height:100%;object-fit:cover;object-position:center;display:block}
+.sc-cap{position:absolute;inset:auto 0 0 0;padding:40px 16px 14px;background:linear-gradient(transparent,rgba(0,0,0,.88));color:#fff;display:flex;flex-direction:column;gap:2px}
+.sc-cap span{align-self:flex-start;font-size:11px;font-weight:700;color:#141414;background:var(--bronze-hi);padding:2px 8px;border-radius:999px;margin-bottom:4px}
+.sc-cap b{font-size:19px;font-weight:700}
+.sc-cap small{font-size:12.5px;color:rgba(255,255,255,.8);line-height:1.5}
+.dots{display:flex;justify-content:center;gap:6px}
+.dots i{width:6px;height:6px;border-radius:50%;background:#555;transition:background .2s,width .2s}
+.dots i.on{background:var(--bronze-hi);width:16px;border-radius:3px}
+.more{align-self:center;font-size:13px;color:var(--bronze-hi)!important;text-decoration:none;border:1px solid #3a3a3a;border-radius:999px;padding:8px 16px}
+.more:hover{border-color:var(--bronze-hi)}
+.home .tcard{background:#1c1c1c;border:1px solid #2e2e2e}
+.reqb{align-self:flex-start;font-size:11.5px;font-weight:700;color:#141414;background:var(--bronze-hi);padding:3px 9px;border-radius:999px}
+.home .link-lock{background:transparent;border:1px dashed #3a3a3a;color:var(--muted)}
+.home .link-lock .ico{background:#242424}
+.home .link-lock .ico svg{stroke:#ddd}
+.home .gate{background:#1c1c1c;border:1px solid #2e2e2e;border-radius:12px}
+.home .btn-submit{background:var(--bronze-hi);border-color:var(--bronze-hi);color:#141414}
+body:has(#profile:not([hidden])){background:#111}
+.hfoot{justify-content:center;border-top:1px solid #2a2a2a;color:var(--muted)!important;font-size:11.5px}
+
+
+/* 홈 밝기 조정: 금빛 · 베이지 테두리 포인트 */
+.home{background:#1d1d1c;--goldline:linear-gradient(135deg,#EADBB8 0%,#C7A877 35%,#9C7C52 65%,#E4D3AE 100%)}
+body:has(#profile:not([hidden])){background:#1d1d1c}
+.hero{background:linear-gradient(#232321,#232321) padding-box,var(--goldline) border-box;border:1.5px solid transparent;border-radius:20px;padding:30px 18px 24px;box-shadow:0 10px 30px rgba(0,0,0,.35),inset 0 1px 0 rgba(234,219,184,.12)}
+.hero-mark{box-shadow:0 0 0 2px #1d1d1c,0 0 0 4px #C7A877,0 8px 24px rgba(199,168,119,.18)}
+.hero-name{color:#F7F3EA}
+.hero-tag{color:#D9C08F}
+.hero-school{color:#B5ADA0}
+.hero-icons a{color:#B5ADA0}
+.hero-icons svg{stroke:#F1E6CF;border-color:#5a4d38;background:#2a2926}
+.hero-icons a:hover svg{border-color:#D9C08F;background:#312e28}
+.drop{background:#262624;border-color:#3a3934;border-left:3px solid #C7A877}
+.drop-cta{border-left-width:1px}
+.home .tcard{background:linear-gradient(#232321,#232321) padding-box,var(--goldline) border-box;border:1.5px solid transparent;color:#F1F1EE}
+.home .tcard .tmeta{color:#D9C08F}
+.home .tcard p{color:#C9C5BC}
+.home .tcard .tfoot{border-top-color:rgba(199,168,119,.3)}
+.home .tcard .tmore{color:#B5ADA0}
+.more{color:#151515!important;background:linear-gradient(135deg,#EADBB8,#C7A877);border:0;font-weight:600}
+.more:hover{filter:brightness(1.05)}
+.dots i{background:#4a4944}
+.hhead h2{color:#F7F3EA}
+.home .link-lock{border-color:#4a4944}
+
+
+/* 사례 상세 (강의 기획자용 요약형) */
+.cs-sum{gap:8px}
+.cs-hook{margin:0;font-size:18px;font-weight:700;line-height:1.5;color:var(--ink);padding-left:12px;border-left:3px solid var(--bronze)}
+.cs-sum p:not(.cs-hook){margin:0;font-family:var(--f-serif);font-size:15px;line-height:1.85}
+.cs-feats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+@media (max-width:620px){.cs-feats{grid-template-columns:1fr}}
+.cs-feat{background:var(--side);border-radius:12px;padding:14px;display:flex;flex-direction:column;gap:5px}
+.cs-feat span{font-size:12px;font-weight:700;color:var(--bronze)}
+.cs-feat b{font-size:15px}
+.cs-feat p{margin:0;font-size:13.5px;line-height:1.6;color:var(--muted)}
+.cs-eff{display:flex;flex-direction:column;gap:0;border-top:1.5px solid var(--rule)}
+.cs-eff div{display:grid;grid-template-columns:150px minmax(0,1fr);gap:12px;padding:12px 0;border-bottom:1px solid var(--line)}
+@media (max-width:480px){.cs-eff div{grid-template-columns:1fr;gap:2px}}
+.cs-eff b{font-size:14.5px;color:var(--bronze)}
+.cs-eff p{margin:0;font-size:14px;line-height:1.6}
+.cs-easy{background:var(--black);color:var(--black-ink);border-radius:14px;padding:18px;gap:8px}
+.cs-easy h2{font-size:17px;color:var(--black-ink)}
+.cs-easy ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:7px}
+.cs-easy li{position:relative;padding-left:26px;font-size:14px;line-height:1.55;color:rgba(243,243,243,.9)}
+.cs-easy li::before{content:"✓";position:absolute;left:0;top:0;width:18px;height:18px;border-radius:50%;background:var(--bronze-hi);color:#141414;font-size:11px;font-weight:700;display:grid;place-items:center}
+.cta-topic{color:var(--bronze-hi);font-size:13.5px;text-decoration:none;align-self:flex-start}
+.cta-topic:hover{text-decoration:underline}
+
+
+.demo-banner{display:flex;align-items:center;gap:14px;text-decoration:none;color:var(--black-ink);border-radius:14px;padding:16px;background:linear-gradient(#1f1f1e,#1f1f1e) padding-box,linear-gradient(135deg,#EADBB8,#C7A877 40%,#9C7C52 70%,#E4D3AE) border-box;border:1.5px solid transparent;transition:transform .15s}
+.demo-banner:hover{transform:translateY(-1px)}
+.db-ico{flex:none;width:44px;height:44px;border-radius:12px;background:var(--bronze-hi);display:grid;place-items:center}
+.db-ico svg{width:24px;height:24px;stroke:#141414;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.db-txt{display:flex;flex-direction:column;gap:2px;min-width:0}
+.db-txt small{font-size:11px;font-weight:700;letter-spacing:.1em;color:var(--bronze-hi)}
+.db-txt b{font-size:15.5px}
+.db-txt span{font-size:13px;color:rgba(243,243,243,.75);line-height:1.5}
+.db-arr{margin-left:auto;font-size:20px;color:var(--bronze-hi)}
+
+/* 화면 전환 */
+.view{transition:opacity .32s ease, transform .32s ease}
+.view.out{opacity:0;transform:translateY(6px)}
+
+/* 사례 목록 */
+.case-list{display:flex;flex-direction:column;border-top:1.5px solid var(--rule)}
+.case-item{display:grid;grid-template-columns:96px minmax(0,1fr) auto;gap:14px;align-items:center;border-bottom:1px solid var(--line);padding:12px 2px;text-decoration:none;color:var(--ink)}
+a.case-item:hover h3{text-decoration:underline;text-underline-offset:3px}
+.case-item .thumb{width:96px;height:64px;overflow:hidden;background:var(--side);display:grid;place-items:center;border:1px solid var(--line)}
+.case-item .thumb img{width:100%;height:100%;object-fit:cover;object-position:center;display:block}
+.case-item .thumb span{font-size:22px;font-weight:700;color:var(--muted)}
+.code{font-size:11.5px;color:var(--bronze);font-weight:500}
+.case-item h3{font-size:15px;font-weight:600;line-height:1.4;margin:1px 0}
+.case-item p{margin:0;font-size:13px;color:var(--muted);line-height:1.5}
+.case-item .arr{color:var(--bronze)}
+.case-item.soon{opacity:.7}
+.badge{font-size:11px;padding:2px 7px;border:1px solid var(--line);color:var(--muted);white-space:nowrap}
+
+/* 사례 상세 */
+.back{color:var(--muted);font:400 13px var(--f-sans);padding:2px 0;align-self:flex-start;text-decoration:none}
+.back:hover{color:var(--ink)}
+.d-head{display:flex;flex-direction:column;gap:6px}
+.d-title{font-size:clamp(30px,6vw,40px);font-weight:700;letter-spacing:-.02em;line-height:1.12}
+.d-sub{color:var(--bronze);font-size:clamp(16px,3vw,19px);margin:0;padding-bottom:12px;border-bottom:2px solid var(--bronze)}
+.d-lead{font-family:var(--f-serif);font-size:15px;line-height:1.85;margin:8px 0 0}
+.d-hero{margin:0}
+.d-hero img,.shot img{display:block;width:100%;height:auto;cursor:zoom-in}
+.apply{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+@media (max-width:680px){.apply{grid-template-columns:1fr}}
+.ap-card{border:1.5px solid transparent;background:linear-gradient(var(--paper,#fff),var(--paper,#fff)) padding-box,linear-gradient(135deg,#C9A45C,#EBD9B4 50%,#A8834A) border-box;border-radius:14px;padding:16px;display:flex;flex-direction:column;gap:8px;min-width:0}
+.apply>.ap-card:only-child{grid-column:1/-1}
+.ap-head{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.ap-tag{font-size:12px;font-weight:700;background:var(--black);color:var(--bronze-hi);padding:3px 10px;border-radius:999px}
+.ap-head small{font-size:12px;color:var(--bronze)}
+.ap-card>b{font-size:16px;line-height:1.4}
+.ap-card>p{margin:0;font-size:13.5px;line-height:1.65;color:var(--muted)}
+.ap-card ol{list-style:none;margin:4px 0 0;padding:0;counter-reset:ap;display:flex;flex-direction:column;gap:0;border-top:1px solid var(--line)}
+.ap-card li{counter-increment:ap;display:grid;grid-template-columns:22px minmax(0,1fr);gap:0 8px;padding:9px 0;border-bottom:1px solid var(--line)}
+.ap-card li::before{content:counter(ap);grid-row:span 2;width:20px;height:20px;border-radius:50%;background:var(--bronze-hi);color:#141414;font-size:11px;font-weight:700;display:grid;place-items:center}
+.ap-card li em{font-style:normal;font-size:13.5px;font-weight:700}
+.ap-card li span{font-size:13px;line-height:1.55}
+.ap-note{margin-top:12px;background:var(--black);color:var(--black-ink);border-radius:14px;padding:16px 18px;display:flex;flex-direction:column;gap:6px;border-left:4px solid var(--bronze-hi)}
+.ap-note b{font-size:13px;color:var(--bronze-hi);letter-spacing:.04em}
+.ap-note p{margin:0;font-size:14px;line-height:1.7;color:rgba(243,243,243,.92)}
+.cs-motive{border-left:3px solid var(--bronze-hi);padding:4px 0 4px 16px;gap:6px}
+.cs-motive h2{font-size:17px;margin:0}
+.cs-motive p{margin:0;font-size:14.5px;line-height:1.8}
+.st-intro{margin:0 0 14px;font-size:14px;line-height:1.7;color:var(--muted)}
+.stages{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px}
+.st{display:grid;grid-template-columns:96px minmax(0,1fr);gap:14px;border:1.5px solid transparent;background:linear-gradient(var(--paper),var(--paper)) padding-box,linear-gradient(135deg,#C9A45C,#EBD9B4 50%,#A8834A) border-box;border-radius:14px;padding:16px}
+@media (max-width:520px){.st{grid-template-columns:1fr;gap:8px}}
+.st-side{display:flex;flex-direction:column;gap:6px;align-items:flex-start}
+.st-no{font-size:12.5px;font-weight:700;background:var(--black);color:var(--bronze-hi);padding:4px 10px;border-radius:999px;white-space:nowrap}
+.st-side small{font-size:12px;color:var(--bronze);font-weight:700}
+.st-body{display:flex;flex-direction:column;gap:6px;min-width:0}
+.st-body b{font-size:16px;line-height:1.4}
+.st-body p{margin:0;font-size:14px;line-height:1.7}
+.st-body ul{list-style:none;margin:4px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:6px}
+.st-body ul li{font-size:12.5px;padding:4px 10px;border-radius:999px;background:var(--side);border:1px solid var(--line)}
+.insight{background:var(--black);color:var(--black-ink);border-radius:16px;padding:22px 20px;gap:10px;border:1.5px solid transparent;background:linear-gradient(var(--black),var(--black)) padding-box,linear-gradient(135deg,#C9A45C,#EBD9B4 50%,#A8834A) border-box}
+.insight h2{font-size:19px;line-height:1.4;color:var(--black-ink);margin:0}
+.insight .in-lead,.insight .in-tail{margin:0;font-size:14.5px;line-height:1.75;color:rgba(243,243,243,.88)}
+.in-case{background:rgba(255,255,255,.05);border-radius:12px;padding:14px 16px;display:flex;flex-direction:column;gap:6px}
+.in-case b{font-size:14px;color:var(--bronze-hi)}
+.in-case p{margin:0;font-size:13.5px;color:rgba(243,243,243,.8)}
+.in-case ol{list-style:none;margin:4px 0 0;padding:0;counter-reset:iv;display:flex;flex-direction:column;gap:8px}
+.in-case li{counter-increment:iv;display:grid;grid-template-columns:24px minmax(0,1fr);gap:2px 10px;align-items:start}
+.in-case li::before{content:counter(iv);grid-row:span 2;width:22px;height:22px;border-radius:50%;background:var(--bronze-hi);color:#141414;font-size:12px;font-weight:700;display:grid;place-items:center}
+.in-case li span{font-size:14.5px;font-weight:700;color:#fff}
+.in-case li em{font-style:normal;font-size:12.5px;color:var(--bronze-hi)}
+.flow{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:0;counter-reset:f;border:1px solid var(--line)}
+.flow li{counter-increment:f;font-size:13px;padding:8px 12px;display:flex;gap:8px;align-items:center;border-right:1px solid var(--line);flex:1 1 140px}
+.flow li::before{content:counter(f);font-size:12px;font-weight:700;color:var(--bronze)}
+.feats{display:flex;flex-direction:column;gap:11px}
+.feat{position:relative;padding-left:14px;font-family:var(--f-serif);font-size:14.5px;line-height:1.75}
+.feat::before{content:"•";position:absolute;left:0}
+.feat b{font-family:var(--f-sans);font-weight:600}
+.feat b::before{content:"<"}.feat b::after{content:"> "}
+.feat p{display:inline;margin:0}
+.gallery{display:flex;flex-direction:column;gap:22px}
+.shot{margin:0;display:flex;flex-direction:column;gap:6px}
+.shot .frame{border:1px solid var(--line);background:var(--paper)}
+.shot.tall .frame{max-width:300px}
+.shot figcaption{font-size:12.5px;color:var(--muted)}
+.stages{display:flex;flex-direction:column;border-top:1.5px solid var(--rule)}
+.stage{display:grid;grid-template-columns:150px minmax(0,1fr);grid-template-rows:auto 1fr;column-gap:12px;row-gap:2px;padding:11px 0;border-bottom:1px solid var(--line)}
+.stage b,.stage span{grid-column:1}
+.stage ol{grid-column:2;grid-row:1 / span 2}
+@media (max-width:480px){.stage{grid-template-columns:1fr;gap:4px}.stage b,.stage span,.stage ol{grid-column:auto;grid-row:auto}}
+.stage b{display:block;font-size:14px;font-weight:600}
+.stage span{font-size:12px;color:var(--muted)}
+.stage ol{margin:0;padding-left:18px;font-size:13.5px;display:flex;flex-direction:column;gap:2px}
+.callout{background:var(--side);border:1px solid var(--bronze);padding:13px 15px;font-size:14px;line-height:1.7}
+.cta-box{background:var(--black);color:var(--black-ink);padding:22px 20px;display:flex;flex-direction:column;gap:10px}
+.cta-box .kicker{font-size:15px}
+.cta-box h3{font-size:20px;font-weight:600}
+.cta-box p{margin:0;opacity:.8;font-size:13.5px}
+.cta-box .btn{background:var(--bronze-hi);border-color:var(--bronze-hi);color:#141414;flex:0 0 auto;align-self:flex-end;padding:12px 20px;border-radius:8px;margin-top:6px}
+.d-nav{display:grid;grid-template-columns:1fr 1fr;border-top:1.5px solid var(--rule);border-bottom:1px solid var(--line)}
+.d-nav a{padding:12px 4px;text-decoration:none;color:var(--ink);font-size:13.5px;min-width:0}
+.d-nav a small{display:block;color:var(--bronze);font-size:11.5px}
+.d-nav a.next{text-align:right;border-left:1px solid var(--line)}
+
+.gallery.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px 14px;align-items:start}
+.gallery.grid2 .shot.tall .frame{max-width:none}
+@media (max-width:380px){.gallery.grid2{grid-template-columns:1fr}}
+.reward{background:var(--black);color:var(--black-ink);border-radius:14px;padding:20px 18px;display:flex;flex-direction:column;gap:8px;border:1px solid var(--bronze-hi)}
+.reward h3{font-size:19px;font-weight:700}
+.reward p{margin:0;font-size:14px;line-height:1.75;color:rgba(243,243,243,.85)}
+.rw-chips{list-style:none;margin:4px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:6px}
+.rw-chips li{font-size:12.5px;padding:4px 11px;border-radius:999px;background:rgba(199,168,119,.18);color:var(--bronze-hi)}
+/* 크게 보기 */
+.lightbox{position:fixed;inset:0;z-index:50;background:rgba(8,8,8,.93);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:max(16px,env(safe-area-inset-top,0px)) max(16px,env(safe-area-inset-right,0px)) max(16px,env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px))}
+.lightbox img{max-width:100%;max-height:82vh;cursor:zoom-out}
+.lightbox p{color:#EDEDED;font-size:13px;margin:0;text-align:center;max-width:60ch}
+.lb-close{position:absolute;top:calc(12px + env(safe-area-inset-top,0px));right:calc(12px + env(safe-area-inset-right,0px));appearance:none;border:1px solid rgba(255,255,255,.3);background:transparent;color:#fff;width:40px;height:40px;font-size:22px;cursor:pointer}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+
+/* readability */
+#detail strong{font-weight:700;color:var(--ink);background:linear-gradient(transparent 60%,rgba(199,168,119,.34) 0);padding:0 1px}
+#detail .insight strong,#detail .ap-note strong,#detail .cs-easy strong,#detail .cta-box strong{color:#fff;background:linear-gradient(transparent 60%,rgba(214,185,140,.3) 0)}
+.cs-sum p+p,.cs-motive p+p,.st-body p+p,.ap-card>p+p,.ap-note p+p,.st-intro p+p,.in-lead p+p,.in-tail p+p{margin-top:10px!important}
+.cs-motive p{font-size:15px;line-height:1.85;max-width:66ch}
+.cs-sum p:not(.cs-hook){max-width:68ch}
+.st-intro{margin:0 0 14px}
+.st-intro p{margin:0;font-size:14.5px;line-height:1.8;color:var(--ink)}
+.in-lead p,.in-tail p{margin:0;font-size:14.5px;line-height:1.8;color:rgba(243,243,243,.9)}
+.ap-card>p{color:var(--ink)!important;line-height:1.75!important;font-size:14px!important;margin:0}
+.st-body p{line-height:1.8!important}
+.ap-note p{margin:0}
+.cs-feat p{color:var(--ink)!important;opacity:.85;line-height:1.7!important}
+
+/* hero skin: navy & gold */
+.hero{position:relative;overflow:hidden;isolation:isolate;
+ background:
+  radial-gradient(120% 70% at 50% 34%,rgba(64,98,170,.28),transparent 60%) padding-box,
+  radial-gradient(40% 30% at 88% 22%,rgba(214,170,100,.16),transparent 70%) padding-box,
+  linear-gradient(160deg,#16213f 0%,#0d1730 45%,#0a1226 100%) padding-box,
+  linear-gradient(135deg,#F3D58F,#B8893E 30%,#6f86c2 55%,#E8C77E 80%,#B8893E) border-box!important;
+ border:1.5px solid transparent!important;border-radius:22px!important;
+ box-shadow:0 18px 40px rgba(6,12,30,.55),0 0 0 1px rgba(232,199,126,.08),inset 0 1px 0 rgba(255,255,255,.08)!important;
+ padding:34px 18px 26px!important}
+.hero::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
+ background:
+  radial-gradient(circle,rgba(220,190,130,.35) 1px,transparent 1.6px) 0 0/9px 9px,
+  radial-gradient(circle,rgba(220,190,130,.3) 1px,transparent 1.6px) 0 0/9px 9px;
+ -webkit-mask:radial-gradient(38% 30% at 6% 18%,#000,transparent 70%),radial-gradient(34% 30% at 96% 80%,#000,transparent 70%);
+ mask:radial-gradient(38% 30% at 6% 18%,#000,transparent 70%),radial-gradient(34% 30% at 96% 80%,#000,transparent 70%);
+ -webkit-mask-composite:source-over;mask-composite:add}
+.hero::after{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
+ background:
+  radial-gradient(140% 90% at -18% -30%,transparent 58%,rgba(245,214,150,.0) 58.2%,rgba(245,214,150,.9) 59%,rgba(190,140,70,.55) 60.5%,transparent 62.5%),
+  radial-gradient(140% 90% at 118% 132%,transparent 58%,rgba(245,214,150,.9) 59%,rgba(190,140,70,.55) 60.5%,transparent 62.5%),
+  linear-gradient(115deg,transparent 38%,rgba(255,255,255,.035) 38.2%,rgba(255,255,255,.035) 52%,transparent 52.2%),
+  linear-gradient(115deg,transparent 60%,rgba(255,255,255,.025) 60.2%,rgba(255,255,255,.025) 70%,transparent 70.2%)}
+.hero-mark{position:relative;overflow:visible!important;width:124px!important;height:124px!important;background:radial-gradient(circle at 50% 40%,#fff,#f1ece0)!important;
+ box-shadow:0 0 0 3px #0d1730,0 0 0 5.5px #E2BE74,0 0 0 7px rgba(140,100,40,.6),0 0 26px 6px rgba(240,196,110,.35),0 10px 30px rgba(0,0,0,.45)!important;margin-bottom:22px!important}
+.hero-mark img{border-radius:50%}
+.hero-mark::before{content:"";position:absolute;left:50%;top:50%;width:262px;height:154px;transform:translate(-131.2px,-73.7px);z-index:-1;background:url("shots/hero-glow.jpg") center/100% 100% no-repeat;pointer-events:none;-webkit-mask:radial-gradient(62% 60% at 50% 50%,#000 72%,transparent 100%);mask:radial-gradient(62% 60% at 50% 50%,#000 72%,transparent 100%)}
+.hero-mark::after{content:none}
+.hero-name{font-size:44px!important;background:linear-gradient(180deg,#ffffff 30%,#c9ced8 100%);-webkit-background-clip:text;background-clip:text;color:transparent!important;text-shadow:none;filter:drop-shadow(0 2px 6px rgba(0,0,0,.45))}
+.hero-tag{display:flex;align-items:center;gap:12px;width:100%;justify-content:center;color:#EFC873!important;font-weight:700!important;font-size:17px!important}
+.hero-tag::before,.hero-tag::after{content:"";flex:1;max-width:70px;height:1px;background:linear-gradient(90deg,transparent,#D9AE5C)}
+.hero-tag::after{background:linear-gradient(90deg,#D9AE5C,transparent)}
+.hero-school{color:#c4c9d6!important;font-size:13px!important}
+.hero-icons{gap:16px!important;margin-top:18px!important}
+.hero-icons a{color:#e9e4d8!important;font-size:12px!important;font-weight:600}
+.hero-icons svg{border:1.5px solid transparent!important;background:radial-gradient(circle at 50% 35%,#2a3350,#121a30) padding-box,linear-gradient(160deg,#F5D998,#9C7330 55%,#E8C77E) border-box!important;stroke:#F3EEE2!important;box-shadow:0 0 14px rgba(232,190,110,.28),inset 0 1px 0 rgba(255,255,255,.08)}
+.hero-icons a:hover svg{box-shadow:0 0 20px rgba(240,200,120,.5),inset 0 1px 0 rgba(255,255,255,.12)}
+.hero-tag{white-space:nowrap;font-size:clamp(13px,3.9vw,17px)!important;gap:10px!important}
+.hero-tag::before,.hero-tag::after{min-width:14px;max-width:60px!important}
+.pill-hint{margin:8px 0 0;font-size:13px;line-height:1.6;color:var(--bronze-hi)}
+
+[hidden]{display:none!important}
+html{-webkit-text-size-adjust:100%}
+body{margin:0}
+</style>
+</head>
+<body>
+
+<!-- ===================== 프로필 ===================== -->
+<div class="wrap view home" id="profile">
+
+  <header class="hero">
+    <div class="hero-mark"><img src="shots/logo.png" alt="온투 로고"></div>
+    <h1 class="hero-name">남관희</h1>
+    <p class="hero-tag">교사의 관점에서 AI, 그 노하우를 나눕니다</p>
+    <p class="hero-school">하남 신평초등학교 · 부장교사</p>
+    <nav class="hero-icons" aria-label="바로가기">
+      <a href="#inquiry" title="강의 예약 문의"><svg viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M9 3v4M15 3v4"/></svg><span>예약</span></a>
+      <a href="#cases" title="사례"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M8 21h8M12 18v3"/></svg><span>사례</span></a>
+      <a href="#topics" title="강의 주제"><svg viewBox="0 0 24 24"><path d="M4 5h7a3 3 0 0 1 3 3v12a2 2 0 0 0-2-2H4z"/><path d="M20 5h-4a3 3 0 0 0-3 3"/><path d="M20 5v13h-6"/></svg><span>강의</span></a>
+      <a href="#about" title="소개"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg><span>소개</span></a>
+    </nav>
+  </header>
+
+  <section class="hsec" id="about">
+    <details class="drop">
+      <summary><span class="hlabel">About</span><b>소개</b><i aria-hidden="true"></i></summary>
+      <div class="drop-body prose">
+        <p>현재 하남 신평초등학교에서 부장교사로 근무하고 있으며, 티처빌에서는 ‘온투’라는 활동명으로 선생님들과 만나고 있습니다.</p>
+        <p>수업과 학교 업무에서 생긴 필요를 AI로 직접 만든 웹앱과 게임으로 풀어 온 현직 교사입니다. 학급 경제교육 플랫폼, 교육과정 연계 게임, 체육·음악·미술 활동 도구, 교사 업무 지원 프로그램을 직접 기획하고 교실에 적용해 왔습니다.</p>
+        <p>학생들이 즐겁게 몰입할 때 배움이 깊어진다고 믿습니다. 현장에서 부딪히며 얻은 경험을 동료 선생님들과 나누는 자리를 소중히 여깁니다.</p>
+      </div>
+    </details>
+    <details class="drop" id="career">
+      <summary><span class="hlabel">Career</span><b>이력 · 경력</b><i aria-hidden="true"></i></summary>
+      <div class="drop-body">
+        <dl class="cv">
+          <dt>현재</dt><dd>하남 신평초등학교 부장교사</dd>
+          <dt>활동</dt><dd>티처빌 ‘온투’<small>교사 대상 연금저축 강의 (누적 수강 인원 500명)</small><small>교사 대상 AI 활용 강의</small></dd>
+          <dt>수업</dt><dd>지구 공개수업<small>너른강 공개수업 2024 · 2026 · 브릿지 공개수업 2025</small></dd>
+          <dt>개발</dt><dd>학급 경제 교육 플랫폼 ‘우리 반 경제 교실’<small>교내 여러 학급이 함께 사용</small></dd>
+          <dt>개발</dt><dd>교육과정 연계 게임<small>생태계 탐험대 · 역사 영웅 대전 · 뮤지엄 타이쿤</small></dd>
+          <dt>운영</dt><dd>AI로 완성하는 RAS 프로그램<small>무브 택틱스 아레나 · 비트북 · 뮤지엄 타이쿤</small></dd>
+          <dt>구축</dt><dd>AI로 제작한 우리 학교 스마트 교무실<small>나이스 생성기 · 특별실 예약 시스템 · 스마트 온라인 교무실</small></dd>
+        </dl>
+      </div>
+    </details>
+  </section>
+
+  <section class="hsec" id="cases" aria-labelledby="cases-h">
+    <div class="hhead"><span class="hlabel">Case Study</span><h2 id="cases-h">대표 사례</h2></div>
+    <div class="carousel" id="featured" tabindex="0" aria-label="대표 사례 넘겨 보기"></div>
+    <div class="dots" id="featDots" aria-hidden="true"></div>
+    <a class="more" href="#more-cases">모든 사례 보기 <span id="caseCount"></span> →</a>
+  </section>
+
+  <section class="hsec" id="topics" aria-labelledby="topics-h">
+    <div class="hhead"><span class="hlabel">Lecture</span><h2 id="topics-h">강의 가능 주제</h2></div>
+    <div class="tcards" id="topicCards"></div>
+    <a class="more" href="#more-topics">모든 강의 주제 보기 →</a>
+  </section>
+
+  <section class="hsec" id="inquiry" aria-labelledby="inq-h">
+    <details class="drop drop-cta" id="inqBox">
+      <summary><span class="hlabel">Booking</span><b id="inq-h">강의·연수 예약 문의</b><i aria-hidden="true"></i></summary>
+      <div class="drop-body">
+      <p class="note">달력에서 가능한 날짜와 시간을 골라 주세요. * 표시는 필수 항목이에요.</p>
+
+    <form id="inqForm" class="form-card" novalidate>
+      <div class="row">
+        <div class="field"><label for="org">기관·학교명<span class="req">*</span></label><input id="org" type="text" placeholder="예: ○○교육지원청" required></div>
+        <div class="field"><label for="person">담당자 성함<span class="req">*</span></label><input id="person" type="text" placeholder="예: 김○○ 장학사" required></div>
+      </div>
+      <div class="row">
+        <div class="field"><label for="contact">연락처(이메일 또는 전화)<span class="req">*</span></label><input id="contact" type="text" placeholder="연락받으실 곳" required></div>
+        <div class="field"><label for="audience">대상</label>
+          <select id="audience"><option>초등 교사</option><option>중등 교사</option><option>교직원 전체</option><option>학부모</option><option>학생</option><option>기타</option></select></div>
+      </div>
+
+      <div class="field">
+        <span class="lbl">희망 일정<span class="req">*</span></span>
+        <div class="cal-box">
+          <div class="cal" id="visCal"></div>
+          <div class="slot-area">
+            <p class="note" id="visSlotNote">달력에서 날짜를 고르면 예약 가능한 시간이 나와요.</p>
+            <div class="slots" id="visSlotList" role="radiogroup" aria-label="시간 선택"></div>
+          </div>
+          <div class="legend"><span><i style="background:var(--paper);border:1px solid var(--line)"></i>예약 가능</span><span><i style="background:var(--tint);border:1px solid var(--tint-ink)"></i>선택한 날</span><span>확정된 시간은 고를 수 없어요</span></div>
+        </div>
+        <div class="pills"><label class="pill"><input type="checkbox" id="dateTbd"><span>일정은 따로 협의하고 싶어요</span></label></div>
+        <input id="dateText" type="text" placeholder="희망 시기를 적어 주세요 (예: 12월 둘째 주 오후)" hidden>
+      </div>
+
+      <div class="field"><span class="lbl">희망 주제 (복수 선택)</span>
+        <div class="pills" id="topicPills">
+          <label class="pill"><input type="checkbox" id="t0" value="AI로 시작하는 수업 첫걸음"><span>AI로 시작하는 수업 첫걸음</span></label>
+          <label class="pill"><input type="checkbox" id="t1" value="수업용 웹앱과 게임"><span>수업용 웹앱과 게임</span></label>
+          <label class="pill"><input type="checkbox" id="t3" value="학급경제·생활지도"><span>학급경제·생활지도</span></label>
+          <label class="pill"><input type="checkbox" id="t4" value="스마트 교무실"><span>스마트 교무실</span></label>
+          <label class="pill"><input type="checkbox" id="t6" value="AI로 완성하는 RAS 프로그램"><span>AI로 완성하는 RAS 프로그램</span></label>
+          <label class="pill"><input type="checkbox" id="t7" value="연금저축 투자"><span>연금저축 투자</span></label>
+          <label class="pill"><input type="checkbox" id="t5" value="협의 후 결정"><span>협의 후 결정</span></label>
+        </div>
+        <p class="pill-hint">✦ 다양한 수업 사례를 선택해서 강의도 가능합니다.</p>
+      </div>
+      <div class="row">
+        <div class="field"><label for="size">예상 인원</label><input id="size" type="number" min="1" inputmode="numeric" placeholder="예: 30"></div>
+        <div class="field"><label for="mode">진행 형태</label>
+          <select id="mode"><option>대면</option><option>온라인(실시간)</option><option>협의</option></select></div>
+      </div>
+      <div class="field"><label for="msg">요청 사항</label><textarea id="msg" placeholder="연수 목적, 참가자 수준, 실습 환경(노트북 지참 여부) 등을 적어 주세요."></textarea></div>
+      <label class="agree"><input type="checkbox" id="agree"> <span>문의 응대를 위해 기관명·성함·연락처를 수집하며, 상담이 끝나면 파기하는 데 동의합니다.<span class="req">*</span></span></label>
+      <p class="err" id="formErr" hidden></p>
+      <button class="btn btn-submit" id="submitBtn" type="submit">예약 문의 보내기</button>
+    </form>
+
+    <div class="done" id="doneBox" hidden>
+      <b id="doneTitle">문의가 접수되었어요</b>
+      <span id="doneText" class="note"></span>
+      <div class="copybox" id="copyText" hidden></div>
+      <div class="btn-row">
+        <button class="btn btn-line" id="copyBtn" type="button" hidden>내용 복사</button>
+        <button class="btn btn-line" id="againBtn" type="button">새 문의 작성</button>
+      </div>
+    </div>
+      </div>
+    </details>
+  </section>
+
+  <section class="hsec" aria-label="강사 전용">
+    <button class="link link-lock" id="inboxBanner" type="button" aria-expanded="false" aria-controls="gate">
+      <span class="ico"><svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></span>
+      <span><b>강사 전용 문의함</b><small>비밀번호를 입력하고 예약과 일정을 관리해요</small></span><span class="arr">→</span>
+    </button>
+    <form class="gate" id="gate" hidden novalidate>
+      <b id="gateTitle">비밀번호 입력</b>
+      <p class="note" id="gateNote">강사만 들어갈 수 있어요.</p>
+      <div class="field" id="pw1wrap"><label for="pw1" id="pw1lbl">비밀번호</label><input id="pw1" type="password" autocomplete="current-password"></div>
+      <div class="field" id="pw2wrap" hidden><label for="pw2">비밀번호 확인</label><input id="pw2" type="password" autocomplete="new-password"></div>
+      <p class="err" id="gateErr" hidden></p>
+      <button class="btn btn-submit" id="gateBtn" type="submit">입장하기</button>
+    </form>
+  </section>
+
+  <footer class="hfoot">© 온투 · 남관희 · 신평초등학교</footer>
+</div>
+
+<!-- ===================== 사례 상세 ===================== -->
+<div class="wrap view" id="detail" hidden></div>
+<div class="lightbox" id="lightbox" hidden role="dialog" aria-modal="true" aria-label="크게 보기">
+  <button class="lb-close" id="lbClose" type="button" aria-label="닫기">×</button>
+  <img id="lbImg" alt="">
+  <p id="lbCap"></p>
+</div>
+
+<!-- ===================== 강사 관리 화면 ===================== -->
+<div class="wrap" id="admin" hidden>
+  <div class="adm-top">
+    <div><div class="eyebrow">강사 전용</div><h2>문의·예약 관리</h2></div>
+    <div class="adm-actions">
+      <button class="btn btn-line btn-sm" id="backBtn" type="button">프로필 보기</button>
+      <button class="btn btn-line btn-sm" id="lockBtn" type="button">잠그기</button>
+    </div>
+  </div>
+  <div class="tabs" role="tablist">
+    <button class="tab" role="tab" id="tabInq" aria-selected="true" aria-controls="panelInq" type="button">문의 관리</button>
+    <button class="tab" role="tab" id="tabSch" aria-selected="false" aria-controls="panelSch" type="button">일정 관리</button>
+  </div>
+  <p class="err" id="admMsg" hidden></p>
+
+  <section id="panelInq" role="tabpanel" aria-labelledby="tabInq">
+    <div class="counts" id="counts"></div>
+    <p class="note">상태를 ‘확정’으로 바꾸면 그 날짜·시간이 마감되어 다른 사람이 예약할 수 없어요.</p>
+    <div id="inqList"></div>
+  </section>
+
+  <section id="panelSch" role="tabpanel" aria-labelledby="tabSch" hidden>
+    <div class="cal-box">
+      <div class="cal" id="admCal"></div>
+      <div class="legend"><span><i style="background:var(--paper);border:1px solid var(--line)"></i>열린 날 (숫자=남은 시간)</span><span><i style="background:var(--bronze)"></i>확정 있음</span></div>
+    </div>
+    <div class="form-card day-panel" id="dayPanel">
+      <h3 id="dayTitle">날짜를 골라 주세요</h3>
+      <p class="note" id="dayHint">달력에서 날짜를 누르면 그날 열 시간을 고를 수 있어요. 누른 시간은 바로 저장돼요.</p>
+      <div class="slots" id="admSlots"></div>
+      <div class="add-time" id="addTimeRow" hidden><input id="newTime" type="time" step="600" aria-label="추가할 시간"><button class="btn btn-line btn-sm" id="addTimeBtn" type="button">시간 추가</button></div>
+      <div class="btn-row" id="dayBtns" hidden>
+        <button class="btn btn-line btn-sm" id="openAllBtn" type="button">기본 시간 모두 열기</button>
+        <button class="btn btn-line btn-sm" id="clearDayBtn" type="button">이 날 비우기</button>
+        <button class="btn btn-line btn-sm" id="copyWeekBtn" type="button">이 시간표를 이번 달 남은 평일에 적용</button>
+      </div>
+      <div id="dayReqs"></div>
+      <p class="ok" id="saveState" hidden></p>
+    </div>
+    <details class="form-card">
+      <summary>비밀번호 변경</summary>
+      <form id="pwChange" novalidate style="display:flex;flex-direction:column;gap:10px;margin-top:12px">
+        <div class="field"><label for="npw1">새 비밀번호</label><input id="npw1" type="password" autocomplete="new-password"></div>
+        <div class="field"><label for="npw2">새 비밀번호 확인</label><input id="npw2" type="password" autocomplete="new-password"></div>
+        <p class="note" id="pwMsg"></p>
+        <button class="btn btn-line" type="submit">변경하기</button>
+      </form>
+    </details>
+  </section>
+</div>
+
+<script>
+/* ---------- 사례 데이터 (노션 ‘AI 연계 교육 활용’ 기반) ---------- */
+const CASES=[
+ {id:'economy',thumb:'tn-economy',hl:["역할 기반 운영","규칙과 보상이 하나로 연결","공공 재정의 역할","교사의 학급 운영 재량","하나의 경제 생태계", "학생 중심으로 운영", "우리 반의 법", "1인 1역", "상금, 어기면 세금", "하루 세 번 발표", "잔소리 대신 긍정적 강화", "노동과 소득의 관계", "기업의 이익이 늘면 주가가 오른다", "시장 조성자", "반드시 갚아야 하는 돈", "2017년부터 학급 경제교육", "AI의 등장", "교사의 경제적 소양", "의도적으로 개입", "가르치고 싶은 경제 상황을 미리 설계", "자신이 겪은 경험을 통해 경제 개념을 자연스럽게 이해", "단계적으로 확장"],group:'edu',code:'학급경영 · 경제교육',title:'우리 반 경제 교실',topicId:'economy',topic:'t3',
+  line:'반 전체가 하나의 작은 나라가 되는 학급 경제 플랫폼',
+  hook:'규칙과 칭찬이 ‘경제’가 되는 순간, 생활지도가 학생 스스로의 일이 됩니다.',
+  summary:'우리 반의 법, 1인 1역 직업과 주급, 세금·주식·채권까지 학생이 직접 운영하는 학급 경제 웹앱입니다. 생활지도와 경제교육을 하나의 시스템으로 묶어 교실의 하루가 곧 경제 수업이 되고, 같은 학교 여러 학급이 함께 쓰고 있어요.',
+  facts:[['대상','초등 3~6학년'],['운영','1년 학급경영'],['준비','교사 PC · 학생 패드'],['현황','교내 여러 학급 공동 사용']],
+  feats:[['우리 반의 법','학생이 만든 법을 지키면 상금, 어기면 세금. 생활지도가 자연스럽게 경제 활동이 돼요.'],['직업과 권한','1인 1역 직업마다 보고 고칠 수 있는 화면이 달라 학생이 직접 반을 운영해요.'],['금융 체험','국세청·회사·주식·채권으로 학년 수준에 맞게 경제 개념을 넓혀 가요.']],
+  motive:'2016년 첫 발령을 받던 해, “내 돈은 어떻게 운용해야 할까?”라는 물음을 품고 혼자 경제 공부를 시작했어요. 큰 부를 이루지는 못했지만, 그 과정에서 쌓인 경제 지식이 제게는 소중한 자산이 되었습니다. 이 지식을 아이들이 초등학교 때부터 직접 적용하며 배운다면 어떨까? 그 고민으로 2017년부터 학급 경제교육을 운영해 왔어요. 늘 기존 도구의 불편함이 커서 비용을 들여 개발을 의뢰해야 하나 싶을 만큼 우리 반에 맞는 플랫폼이 간절했는데, AI의 등장으로 제가 수업에서 꼭 필요했던 기능을 모두 담은 경제 교실을 직접 만들어 운영할 수 있게 되었습니다.',
+  flow:['우리 반 법 만들기','직업 정하기','발표·식사·성실 기록','주급과 세금 정산','주식·채권으로 심화'],
+  stagesLabel:'1년 학급경영 운영 흐름',
+  stagesIntro:'반 전체가 하나의 경제 생태계로 돌아가는 학급경영이에요. 그 중심에는 AI(Claude)로 직접 제작한 경제 교육 플랫폼이 있고, 1인 1역 직업을 맡은 학생들이 기록과 정산을 맡아 학생 중심으로 운영됩니다. 교내 다른 학급의 요청으로 여러 선생님이 같은 플랫폼에 반을 등록해 함께 쓰고 있어요.',
+  stages:[
+   {no:'01',area:'운영 기반',title:'계정과 권한으로 세우는 학급 경제',
+    desc:'시스템 관리자는 개인정보와 학급 기록을 한 번에 정리할 수 있고, 학급 관리자인 선생님은 학생들의 자산 순위를 한눈에 봅니다. 직업마다 보고 고칠 수 있는 권한을 다르게 배분해, 학생이 자기 패드로 접속해 맡은 일을 수행하는 역할 기반 운영이 이루어져요.',
+    acts:['직업별 열람·수정 권한 배분','운영하지 않는 항목은 숨김 처리','권한 밖 화면은 ‘보기 전용’으로 보호']},
+   {no:'02',area:'규칙 · 민주시민',title:'우리 반의 법',
+    desc:'경제 시스템은 우리 반의 법을 기반으로 움직여요. 학급마다 중요하게 여기는 법을 학생과 함께 세우고, 이를 지키면 상금, 어기면 세금이 따르는 구조로 규칙과 보상이 하나로 연결됩니다.',
+    acts:['학급 규칙을 법 조항으로 구조화','상금·세금과 연결된 보상 체계','민주적 규칙 제정 경험']},
+   {no:'03',area:'수업 참여 · 성실',title:'발표 점수와 성실 점수',
+    desc:'가장 중요하게 여기는 것은 발표예요. 하루 세 번 발표하면 보상을 받고, 창의적인 발표에는 칭찬 점수가 더해져요. 기록은 성실부 학생이 개인 패드로 맡되, 수업에 방해되지 않도록 인터페이스를 단순하게 설계했습니다. 알림장·독서노트 검사, RAS와 연계한 운동장 한 바퀴 돌기도 같은 체계로 보상해요.',
+    acts:['일일 발표 3회 · 칭찬 발표 기록','성실부의 알림장·독서노트 검사','RAS 연계 운동장 1바퀴 보상']},
+   {no:'04',area:'기본생활습관',title:'식사 포인트',
+    desc:'식사 지도가 학생에게 부담이 되지 않도록 고안한 장치예요. 다섯 가지 메뉴 중 네 가지 이상 먹으면 접시, 두 가지 이하로 먹으면 쓰레기통 아이콘으로 기록해, 잔소리 대신 긍정적 강화로 바른 식습관을 길러요.',
+    acts:['접시·쓰레기통 아이콘 기록','잘 먹는 습관에 대한 보상','부담 없는 식생활 지도']},
+   {no:'05',area:'보상 · 제재',title:'상금과 세금',
+    desc:'법과 기록 외에 필요한 보상이나 제약은 상금·세금 시스템으로 운영해요. 개별 학생에게도, 여러 학생에게 한 번에도 지급할 수 있어 교사의 학급 운영 재량을 넓혀 줍니다.',
+    acts:['개별 · 일괄 지급 기능','학급 상황에 맞춘 유연한 보상','세금으로 이어지는 재정 흐름']},
+   {no:'06',area:'재정 · 복지',title:'국세청',
+    desc:'국세청 직원이 학급의 세입과 세출을 관리해요. 모인 세금으로 학급 체육 시간 같은 공동의 보상을 누리고, 고학년은 복지와 특별세 개념, 기부까지 경험하며 공공 재정의 역할을 이해합니다.',
+    acts:['세입·세출 관리와 공공 보상','특별세·복지 개념 체험','학생 기부 참여']},
+   {no:'07',area:'노동 · 소득',title:'직업과 주급',
+    desc:'학급 경제는 1인 1역을 기반으로 돌아가요. 등록한 직업과 급여를 바탕으로 매주 주급이 지급되고, 발표·성실·식사 포인트와 상금·세금이 자동으로 합산된 주급 정산표로 일한 만큼 받는 노동과 소득의 관계를 배워요.',
+    acts:['직업별 급여 설정','발표·성실·식사 포인트 자동 합산','세금 20% 공제와 최종 지급액 확인']},
+   {no:'08',area:'기업 · 투자',title:'회사 운영과 주식',
+    desc:'경매 회사와 보드게임 회사를 운영하고, 주가는 학생들의 호가에 따라 움직여요. 가치 왜곡이 심할 때는 은행이 시장 조성자로 개입합니다. 매출·원가표로 이익을 기록하고 매주 금요일 성과급과 배당금을 지급하며, ‘기업의 이익이 늘면 주가가 오른다’는 대전제를 경험으로 이해해요.',
+    acts:['매출·원가표로 이익 계산','성과급·배당금 지급과 재무 기록','은행의 시장 조성자 역할']},
+   {no:'09',area:'금융 심화',title:'채권',
+    desc:'체육과 학급 행사가 많은 5월 무렵 국세청이 적자가 되면, 채권의 개념을 배우고 직접 발행해요. 만기가 있고 반드시 갚아야 하는 돈임을 강조해 신중한 발행을 경험하고, 원하는 학생은 은행 이자보다 높은 표면 이율로 채권을 사고팔 수 있어요.',
+    acts:['국가 재정 적자와 채권 발행','만기·표면 이율 개념 학습','채권 매수와 거래 체험']}],
+  insight:{k:'TEACHER’S ECONOMIC LITERACY',t:'경제 교실의 핵심은 교사의 경제적 소양입니다',
+    lead:'교실도 하나의 작은 경제 시스템이에요. 예상하지 못한 현상이 생기면 교사가 의도적으로 개입해 균형을 조절할 수 있어야 하고, 가르치고 싶은 경제 상황을 미리 설계해 두어야 경험이 자연스럽게 배움으로 이어집니다.',
+    case:'예시 · 경매 회사에 인플레이션이 왔을 때',
+    caseDesc:'학급에 돈이 많이 풀려 경매 물품의 가격이 치솟으면, 저는 이렇게 개입합니다.',
+    moves:[['돈을 쓸 곳을 새로 만들어요','자원의 희소성과 선택의 기회'],['경매에 올리는 물품 수를 늘려요','수요와 공급'],['은행 이자를 올려 저축을 유도해요','유동성과 인플레이션']],
+    tail:'학생들에게 어려운 용어로 먼저 설명하지는 않아요. 개입의 결과로 나타난 현상을 함께 돌아보며 원리를 짚어 주면, 학생들은 자신이 겪은 경험을 통해 경제 개념을 자연스럽게 이해하게 됩니다.'},
+  applyNote:['운영 팁','모든 단계를 한 번에 시작할 필요는 없어요. 3월에는 법과 직업, 발표·성실 기록으로 학급 세우기를 하고, 학년 수준과 학급 상황에 맞춰 국세청, 주식, 채권으로 단계적으로 확장하면 경제 개념이 자연스럽게 심화됩니다.'],
+  effects:[['생활지도 부담은 줄고','칭찬과 규칙이 포인트로 보여 잔소리 대신 시스템이 지도해요.'],['경제 개념은 몸으로','세금과 복지, 기업 이익과 주가의 관계를 직접 겪으며 배워요.'],['책임감과 자기주도성','직업을 맡은 학생들이 반을 함께 운영하는 주인이 돼요.']],
+  easy:['학교·반·비밀번호만 정하면 새 반이 바로 만들어져요','쓰지 않을 항목은 숨기고 필요한 기능만 골라 시작해요','3월 학급 세우기부터 바로 적용할 수 있어요'],
+  pitch:'학급 경제를 처음 시작하는 선생님도 따라 할 수 있도록, 법 만들기부터 주식·채권 확장까지 1년 운영 흐름과 시행착오를 사례 중심으로 나눕니다.',
+  shots:[['eco-rank','선생님 관리 페이지: 학생별 자산 순위 (이름은 가렸어요)'],['eco-login','학교·반 단위로 시작하는 첫 화면'],['eco-law','우리 반의 법: 장과 조항, 상금과 세금'],['eco-meal','식사 포인트: 부담 없는 식사지도'],['eco-stock','주식 시장: 학생 호가로 움직이는 주가'],['eco-present','발표 점수: 일일 발표 3회와 칭찬 발표 기록 (이름은 가렸어요)'],['eco-sincere','성실 점수: 알림장·독서노트·운동장 1바퀴 기록 (이름은 가렸어요)'],['eco-pay','주급 정산표: 직업별 주급과 세금, 포인트가 자동 합산 (이름은 가렸어요)'],['eco-corp','회사 운영: 배당금 지급과 매출·원가표로 이익 기록']]},
+
+ {id:'ecosystem',thumb:'tn-ecosystem',hl:["몬스터의 이름과 진화 관계도", "직접 모으고 비교하며 즐겼기 때문", "2022 개정 교육과정 4학년 과학 교과서", "그대로 담는 것", "매우 복잡한 생태계", "스스로 깨닫도록", "개념 학습 후 게임으로 적용·강화", "먹이 사슬이 자동으로 그려져요", "보상 수업", "복습·강화"],group:'edu',code:'4학년 과학 · 생물과 환경',title:'생태계 탐험대',topicId:'webapp',topic:'t1',grid:true,
+  line:'생물을 모을수록 먹이 그물이 저절로 그려지는 생태 탐험 게임',
+  hook:'외우던 먹이 그물을, 아이들이 직접 모은 생물로 그립니다.',
+  summary:'숲·강·바다를 탐험하며 생물 45종을 모으면, 잡은 생물만으로 먹이 사슬이 자동으로 그려져요. 4학년 과학 「생물과 환경」 성취기준을 그대로 겨냥해, 그물이 복잡해질수록 살아남기 유리하다는 개념에 학생 스스로 도달하게 합니다.',
+  facts:[['대상','4학년 과학'],['수업','4차시 + 보상 수업'],['준비','1인 1기기'],['비용','무료 · 설치 없음']],
+  feats:[['탐험과 생태 도감','생물을 만날 때마다 생산자·소비자·분해자 역할이 함께 표시돼요.'],['나만의 먹이 사슬 그림','잡은 생물로 6단계 사슬이 그려져 학생마다 그림이 모두 달라요.'],['먹이 관계가 곧 전략','내가 먹는 상대에게 강해지는 대결로 먹이 관계를 체감해요.']],
+  motive:'지금도 ‘생태계’ 하면 어릴 적 밤새 몬스터를 모으던 수집 게임이 먼저 떠올라요. 생태계 단원은 생물의 이름과 관계를 익혀야 해서 지식 전달식 수업이 되기 쉬운데, 어떻게 하면 아이들이 즐겁게 배울 수 있을까 고민하던 어느 날 문득 깨달았어요. 제가 아직도 그 게임 속 몬스터의 이름과 진화 관계도를 줄줄 외우고 있는 이유는, 억지로 외워서가 아니라 직접 모으고 비교하며 즐겼기 때문이라는 것을요. 그 깨달음에서 바로 생태계 탐험대를 만들기 시작했습니다.',
+  flow:['생물·비생물 요소','생산자·소비자·분해자','먹이 사슬과 그물 비교','생태계 평형과 보전'],
+  apply:[
+   {tag:'4학년 과학',type:'교육과정 연계 · 개념 적용',title:'개념을 배우고, 탐험하며 내 것으로 만드는 생태계 수업',
+    desc:'가장 중요하게 둔 설계 원칙은 2022 개정 교육과정 4학년 과학 교과서의 먹이 사슬과 생태계 내용을 게임 속에 그대로 담는 것이었어요. 개념 학습 후 게임으로 적용·강화하는 흐름을 통해, 학생들이 먹이 사슬이 얽혀 매우 복잡한 생태계를 이룬다는 사실을 스스로 깨닫도록 하는 것이 목표입니다.',
+    steps:[['개념 학습','생태계의 구성 요소와 먹이 사슬 차시를 먼저 수업하며 핵심 개념을 세워요.'],
+     ['탐험과 수집','숲·강·바다를 탐험하며 다양한 생물을 모으고, 서식지와 생물 요소·비생물 요소를 연결 지어 익혀요.'],
+     ['관계의 체감','대결 속 “먹이 사슬에서 앞서요!” 피드백으로 먹고 먹히는 관계를 몸으로 이해해요.'],
+     ['먹이 그물로 확장','모은 생물로 그려진 먹이 사슬을 친구들과 비교하며, 생태계가 얼마나 복잡하게 얽혀 있는지 발견해요.']]}],
+  applyNote:['운영 팁','생태계 탐험대와 같은 게임형 웹앱 활동은 교실의 긍정적 보상 체계와 연계할 때, 학습 동기를 이끌어 내는 교사의 강력한 수단 중 하나가 됩니다. 단원이 끝난 뒤에도 보상 수업으로 다시 꺼내 쓰면 배운 개념이 자연스럽게 복습·강화돼요.'],
+  effects:[['개념 이해','친구들의 그림을 비교하며 먹이 관계의 의미를 스스로 발견해요.'],['높은 몰입과 반복','놀이처럼 반복하며 생물 이름과 역할을 오래 기억해요.'],['바로 쓰는 평가 자료','도감 종수와 먹이 사슬 그림이 그대로 과정 평가 자료가 돼요.']],
+  easy:['링크 하나로 접속, 학교·반·닉네임만 입력해요','4차시 수업안과 발문, 오개념 지도법까지 안내서로 제공해요','단원이 끝나도 보상 수업으로 계속 활용해요'],
+  pitch:'교과서 단원 하나를 게임으로 바꾸는 설계 과정과, 게임 수업에서 꼭 짚어야 할 발문·오개념 지도법을 함께 다룹니다.',
+  shots:[['eg-web','먹이 사슬 그림: 내가 모은 생물로 그려지는 먹이 그물'],['eg-battle','대결 화면: 상대의 역할이 함께 표시',1],['eg-dex','생태 도감과 생태계 마스터',1],['eg-detail','생물 상세: 사는 곳과 먹이 관계',1],['eg-village','생태 마을: 숲·강·바다로 가는 길',1],['eg2-rabbit','숲 대결: 소비자 토끼를 만난 곰, “먹이 사슬에서 앞서요!” 관계 피드백',1],['eg2-mole','곰의 포효 돌진: 먹고 먹히는 관계가 대결 결과로 이어져요',1],['eg2-orca','바다 대결: 범고래의 무리 사냥으로 바다 생태계 먹이 관계 익히기',1],['eg2-net','채집 결정: 대결한 생물을 도감에 모으는 순간',1]],classShots:[['eg2-class1','생태계 내의 생물에 대해서 게임 중 먹이 사슬을 의논하는 장면'],['eg2-class2','먹고 먹히는 관계와 생물의 서식지 관련 내용을 확인하는 장면']]},
+
+ {id:'history',thumb:'tn-history',hl:["배움 → 체험 → 성찰", "게임 기반 학습(GBL)", "누가, 왜, 어떻게", "배경지식(스키마)", "흥미 중심의 선행 노출", "제한적·선택적으로 투입", "긍정적 강화 도구", "외적 동기", "내적 학습 동기", "고조선부터 6·25 전쟁까지"],group:'edu',code:'4~6학년 사회 · 한국사',title:'역사 영웅 대전',topicId:'webapp',topic:'t1',
+  line:'교과서 인물을 모으고 이야기를 따라가는 한국사 카드 게임',
+  hook:'외워야 할 인물이, 모으고 싶은 영웅이 됩니다.',
+  summary:'2022 개정 교과서의 사건과 인물로 만든 역사 게임이에요. 인물 카드를 모으며 업적과 이야기를 읽고, 시대별 스토리 모드로 고조선부터 6·25 전쟁까지 사건의 흐름을 따라갑니다. 4·5·6학년 모두 활용할 수 있어요.',
+  facts:[['대상','4~6학년 사회'],['구성','10개 시대 · 인물 85명'],['준비','1인 1기기'],['특징','직접 그린 캐릭터']],
+  feats:[['인물 도감','시대별 인물을 모으며 역사적 사실과 이어진 이야기를 읽어요.'],['시대별 스토리 모드','교과서 사건을 순서대로 따라가며 시대의 흐름을 잡아요.'],['일일퀴즈와 대전','매일 퀴즈로 복습하고, 반·학년·학교 대회로 동기를 이어가요.']],
+  flow:['스토리 모드로 시대 흐름 잡기','수업 후 인물 도감 채우기','일일퀴즈로 복습','주간 대전으로 마무리'],
+  applyLabel:'학년별 적용',
+  apply:[
+   {tag:'5·6학년',type:'교과 연계 심화형',title:'진도와 함께 걷는 스토리 연계 수업',
+    desc:'한국사 단원의 진도에 맞춰 해당 시대의 스토리 전투를 열어, 교과서에서 배운 사건을 게임 속에서 다시 경험하는 ‘배움 → 체험 → 성찰’ 구조의 게임 기반 학습(GBL)으로 운영합니다.',
+    steps:[['도입 · 동기 유발','차시 사건의 스토리 도입 화면으로 시대·장소·배경을 확인하며 학습 문제를 세워요.'],
+     ['전개 ① 인물 탐구','맞서는 빌런(예: 한산도 대첩의 와키자카 야스하루)과 관련 역사 인물의 카드를 살펴보며 ‘누가, 왜, 어떻게’를 인물 중심으로 분석해요.'],
+     ['전개 ② 체험·적용','시대 보너스와 전장 효과를 고려해 덱을 짜고 전투를 플레이하며, 사건의 전개를 전략으로 재구성해요.'],
+     ['정리 · 성찰','전투 결과를 실제 역사와 비교하고, 인물의 선택과 역사적 의미를 한 줄 성찰로 정리해요.']]},
+   {tag:'4학년',type:'배경지식 형성형',title:'가볍게 즐기며 쌓는 역사의 큰 그림',
+    desc:'본격적인 한국사 학습에 앞서, 인물 수집과 도감 읽기로 시대 순서와 대표 인물에 대한 배경지식(스키마)을 자연스럽게 형성하는 흥미 중심의 선행 노출 활동입니다.',
+    steps:[['자투리 시간 플레이','아침 활동이나 쉬는 시간에 가볍게 플레이하며 인물 카드를 모아요.'],
+     ['도감으로 맥락 읽기','카드의 ‘역사 이야기’와 해시태그를 읽으며 인물과 사건, 시대를 연결해요.'],
+     ['연대기적 사고의 기초','고조선부터 현대까지 시대의 흐름을 큰 그림으로 익혀요.'],
+     ['5학년 학습의 디딤돌','친숙해진 인물과 사건이 5학년 한국사 학습의 출발점이 돼요.']]}],
+  applyNote:['운영 팁','수업 시간에는 차시 목표에 맞춰 제한적·선택적으로 투입해도 충분해요. 또한 교사의 통제 아래 학급 보상 체계와 연계하면, 정해진 시간과 규칙 안에서 플레이 기회를 주는 긍정적 강화 도구로 빛을 발합니다. 보상으로 시작한 외적 동기가 인물과 사건에 대한 호기심, 곧 내적 학습 동기로 이어지도록 설계할 수 있어요.'],
+  effects:[['인물과 사건의 연결','인물마다 업적과 사건이 묶여 맥락 있는 역사 이해가 생겨요.'],['꾸준한 복습 습관','하루 한 문제 퀴즈가 자연스러운 복습 루틴이 돼요.'],['역사에 대한 흥미','“다음 시대가 궁금해요”라는 말이 나오는 수업이 돼요.']],
+  easy:['선생님 모드에서 보상·계정·대전을 한 화면에 관리해요','반별·학년별·학교별 대회로 운영 규모를 조절해요','매일 5분 퀴즈만으로도 시작할 수 있어요'],
+  pitch:'역사처럼 외울 것이 많은 교과를 수집·스토리·대전 구조로 바꾸는 게임 설계법과 학급 운영 노하우를 나눕니다.',
+  shots:[['his-main','메인 화면: 인물 관리 · 도감 · 스토리 · 대전 · 퀴즈'],['his-dex','시대별 도감: 고조선부터 6·25 전쟁까지'],['his-story','스토리 모드: 시대별 사건 따라가기'],['his-battle','전투 장면: 직접 만든 캐릭터'],['his-deck','출전 영웅: 코스트 안에서 덱을 짜는 전략 화면'],['his-card','인물 카드: 기술과 역사 이야기·해시태그를 함께 읽기'],['his-intro','스토리 전투 도입: 사건의 시대·장소·배경을 먼저 안내']],classShots:[['his-class1','짝과 함께 인물 카드를 고르며 전략 나누기'],['his-class2','인물 관리 화면: 수업에서 모은 역사 인물 카드'],['his-class3','쉬는 시간에도 이어지는 역사 인물 대전']]},
+
+ {id:'moon',thumb:'tn-moon',hl:["관찰 중심 탐구 학습", "예상 → 관찰 → 기록 → 규칙성 발견", "실제적 탐구 질문", "협력적 프로젝트 학습(PBL)", "성취기준에 맞춘 기능", "스스로 탐험대원이 되어 몰입", "수업 의도에 꼭 맞는 기능을 직접 설계", "가장 큰 강점", "날짜별로 모여"],group:'edu',code:'4학년 과학 · 관찰 프로젝트',title:'달관찰 탐험대',topicId:'webapp',topic:'t1',
+  line:'친구들의 달 관찰을 날짜별로 모아 보는 우리 반 관찰 플랫폼',
+  hook:'흐린 날, 관찰을 못 한 날도 우리 반의 기록은 이어집니다.',
+  summary:'구글 앱스 스크립트로 만든 기능 특화 패들렛이에요. 오늘의 달 모양과 관찰하기 좋은 시각을 알려 주고, 학생들이 올린 달 사진이 날짜별로 모여 직접 관찰이 어려운 친구도 함께 4주 관찰 기록을 완성합니다.',
+  facts:[['대상','4학년 과학'],['기간','약 4주 가정 관찰'],['준비','학교 구글 계정'],['비용','무료']],
+  feats:[['오늘의 달','달 모양 달력과 관찰하기 좋은 시각을 보여 줘요.'],['관찰 미션','모양 그리기, 위치, 시각, 사진 네 가지 미션으로 기록을 안내해요.'],['날짜별 사진 공유','반 친구들의 관찰이 날짜순으로 모여 하나의 데이터가 돼요.']],
+  flow:['관찰 방법 안내','4주 가정 관찰과 사진 올리기','모인 데이터로 탐구질문 해결','결과 발표'],
+  apply:[
+   {tag:'과학 교과',type:'관찰학습 연계',title:'4주 동안 이어지는 우리 반 달 관찰',
+    desc:'달의 모양 변화 단원을 교실 안의 설명이 아닌 학생이 직접 수집한 관찰 자료로 배우는 관찰 중심 탐구 학습입니다. 예상 → 관찰 → 기록 → 규칙성 발견의 과학적 탐구 과정을 4주에 걸쳐 경험해요.',
+    steps:[['예상하기','달 모양 달력을 넘겨 보며 “다음 주의 달은 어떤 모양일까?” 가설을 세워요.'],
+     ['관찰·기록','관찰 미션에 따라 가정에서 달의 모양·위치·시각을 기록하고 사진을 올려요.'],
+     ['자료 해석','날짜별로 모인 사진을 나란히 놓고 모양과 위치가 바뀌는 규칙성을 찾아요.'],
+     ['일반화','“약 한 달 주기로 모양이 반복된다”는 결론을 우리 반 데이터를 근거로 설명해요.']]},
+   {tag:'프로젝트 학습',type:'PBL · 협력 탐구',title:'우리 반이 함께 만드는 달 데이터',
+    desc:'‘흐린 날의 달은 어떻게 알 수 있을까?’ 같은 실제적 탐구 질문에서 출발해, 개인의 관찰을 학급 공동의 데이터로 모으는 협력적 프로젝트 학습(PBL)으로 확장해요.',
+    steps:[['탐구 질문 세우기','예: “달은 매일 같은 시각, 같은 자리에 뜰까?”'],
+     ['역할 나누기','요일별·시간대별 관찰 담당을 정해 관찰 공백을 함께 메워요.'],
+     ['근거 기반 발표','친구들의 사진을 근거 자료로 인용해 탐구 결과를 발표해요.'],
+     ['성찰과 확장','“보름달은 왜 밤새 보일까?” 같은 새로운 질문으로 다음 탐구를 이어가요.']]}],
+  applyNote:['AI로 교사가 직접 만드는 수업 도구의 강점','패들렛 같은 범용 도구는 편리하지만 우리 수업에 꼭 필요한 기능까지 담기는 어려워요. 달관찰 탐험대는 ‘오늘의 달’, ‘달 모양 달력’, ‘관찰 미션’처럼 단원의 성취기준에 맞춘 기능을 넣은 웹앱이라, 학생들이 단순히 사진을 올리는 것을 넘어 스스로 탐험대원이 되어 몰입합니다. 이처럼 간단한 수업 활용 도구라도 AI의 도움을 받으면 교사가 수업 의도에 꼭 맞는 기능을 직접 설계해 넣을 수 있어요. 수업을 가장 잘 아는 교사가 도구까지 직접 만든다는 것, 이것이 AI로 교사가 직접 만드는 프로그램 수업의 가장 큰 강점입니다.'],
+  effects:[['관찰 공백 보완','날씨나 환경 때문에 빠진 날을 친구의 기록으로 채워요.'],['데이터 기반 탐구','우리 반이 모은 자료를 근거로 결론을 세워요.'],['꾸준한 관찰 습관','매일 미션이 작은 관찰 루틴이 돼요.']],
+  easy:['구글 시트와 앱스 스크립트로 무료 운영해요','자료가 학교 계정에 남고 교사가 시트에서 바로 확인해요','식물 기르기 등 다른 관찰 단원에도 그대로 응용해요'],
+  pitch:'패들렛처럼 익숙한 도구를 우리 수업에 딱 맞게 직접 만드는 방법과, 학생이 모은 데이터로 탐구하는 프로젝트 설계를 다룹니다.',
+  shots:[['moon-today','오늘의 달: 달의 나이·밝은 부분·남중 시각과 관찰하기 좋은 시간 안내'],['moon-cal','달 모양 달력: 날짜를 누르면 그날의 달'],['moon-photos','관찰 미션과 우리 반 달 사진 (이름은 가렸어요)'],['moon-cal2','달 모양 달력: 한 달 동안의 모양 변화를 한눈에 비교'],['moon-wall1','우리 반 달 관찰 사진: 날짜·시각·방향과 관찰 소감 기록 (이름은 가렸어요)'],['moon-wall2','보름달 무렵 모인 관찰 사진: 친구들의 기록이 하나의 데이터가 돼요 (이름은 가렸어요)']]},
+
+ {id:'move',thumb:'tn-move',hl:["티볼 리그", "전략을 이해하지 못하는 아이", "자기 자세가 맞는지 알 수 없어", "교육적 고민", "전술 게임 접근법(TGfU)", "생각하고 판단하는 체육", "자기주도적 학습 도구", "자기 조절 학습", "학생 자치", "학생 주도", "계정 없이 기기 안에서만 작동"],group:'edu',code:'체육 · RAS',title:'무브 택틱스 아레나',topicId:'ras',topic:'t6',ras:true,
+  line:'작전을 3D로 보고 내 자세를 스스로 점검하는 체육 수업 웹앱',
+  hook:'운동을 잘하지 못해도, 경기를 이해하는 학생은 주인공이 됩니다.',
+  summary:'축구·농구·티볼의 경기 상황 100개와 기본 동작 23개를 3D로 보여 주는 체육 수업 앱이에요. 작전판으로 ‘어디로, 왜 움직이는지’ 이해하고, 내 사진으로 자세를 분석해 기준 동작과 비교합니다. 계정 없이 기기 안에서만 작동해요.',
+  facts:[['대상','4~6학년 체육'],['종목','축구 · 농구 · 티볼'],['준비','태블릿 · 노트북'],['개인정보','계정 없음 · 사진 전송 없음']],
+  feats:[['3D 작전판','선수마다 움직이는 방향과 이유를 쉬운 설명과 함께 보여 줘요.'],['조인트 아이 · 자세 분석','기준 동작을 관절별로 보고, 내 사진과 비교해 일치도와 코칭을 받아요.'],['전술 게임','감독의 선택, 위치 찍기, 자세 챌린지로 배운 내용을 확인해요.']],
+  motive:'학생들과 티볼 리그를 운영하며 가르치다 보니 두 부류의 아이들이 눈에 밟혔어요. 경기에는 열심히 참여하지만 ‘왜 지금 그 자리로 가야 하는지’ 전략을 이해하지 못하는 아이, 그리고 스스로 연습하고 싶어도 자기 자세가 맞는지 알 수 없어 막막해하는 아이였죠. 교사 한 명이 모든 학생의 판단과 자세를 매 순간 짚어 줄 수는 없기에, 아이들이 눈으로 전략을 이해하고 스스로 자세를 점검할 수 있는 도구가 필요하다는 교육적 고민 끝에 무브 택틱스 아레나를 만들었습니다.',
+  flow:['작전판으로 오늘 상황 보기','조인트 아이로 동작 익히기','운동장에서 연습하며 자세 찍기','게임으로 확인하기'],
+  apply:[
+   {tag:'체육 수업',type:'경쟁활동 · 전술 이해',title:'생각하는 플레이를 기르는 경쟁활동',
+    desc:'축구·농구·티볼 같은 영역형·필드형 경쟁활동에서 기능 연습에만 머무르지 않고, 전술 게임 접근법(TGfU)처럼 경기 상황을 먼저 이해한 뒤 플레이하도록 돕습니다. ‘잘 뛰는 체육’에서 ‘생각하고 판단하는 체육’으로 수업의 초점을 옮겨요.',
+    steps:[['상황 제시','작전판으로 오늘 다룰 경기 상황(예: 주자 1루, 수비 위치 선정)을 3D로 함께 봐요.'],
+     ['전술 탐색','“이 선수는 왜 이쪽으로 움직일까?” 발문으로 공간·협력·전환의 원리를 찾아요.'],
+     ['수정된 게임','배운 상황을 적용한 간이 경기에서 직접 판단하고 움직여요.'],
+     ['피드백','감독의 선택 게임으로 상황 판단력을 다시 확인하고 다음 경기 전략을 세워요.']]},
+   {tag:'RAS 연계',type:'자기주도 연습 · 학생 자치',title:'스스로 고치고, 스스로 운영하는 리그',
+    desc:'RAS 활동에서는 교사가 일일이 지도하지 않아도 학생이 스스로 연습하고 자세를 수정하는 자기주도적 학습 도구가 됩니다. 나아가 학생 자치로 리그전을 운영하고, 경기 후 전략 점검까지 학생 주도로 이루어지는 성찰의 장을 만들어요.',
+    steps:[['자기주도 연습','조인트 아이로 기준 동작을 보고 내 자세를 찍어 일치도와 코칭을 확인해요.'],
+     ['자기 평가·수정','부위별 피드백으로 고칠 점을 스스로 찾아 다시 연습하는 자기 조절 학습이 일어나요.'],
+     ['자치 리그전','학생들이 팀 구성·일정·심판을 맡아 리그를 직접 운영해요.'],
+     ['학생 주도 전략 점검','경기 후 작전판으로 우리 팀의 플레이를 되짚으며 다음 경기 전략을 함께 세워요.']]}],
+  effects:[['전술 이해','공간·협력·전환·판단·수비 개념을 눈으로 익혀요.'],['스스로 점검하는 힘','내 자세를 기준과 비교하며 고칠 점을 직접 찾아요.'],['모두가 참여하는 체육','운동 능력과 관계없이 이해와 판단으로 참여해요.']],
+  easy:['설치·로그인 없이 링크만 있으면 돼요','새싹·도전·마스터 난이도로 학년에 맞춰요','한 차시 수업 흐름을 그대로 따라 할 수 있어요'],
+  pitch:'‘보는 체육’에서 ‘이해하는 체육’으로. AI로 만든 체육 수업 도구와 RAS 연계 운영 사례를 소개합니다.',
+  shots:[['mv-board','작전판: 선수별 움직임과 쉬운 해설'],['mv-joint','조인트 아이: 기준 동작을 3D로'],['mv-pose','내 자세 분석: 일치도와 부위별 코칭'],['mv-coach','게임 · 감독의 선택']]},
+
+ {id:'beatbook',thumb:'tn-beatbook',hl:["악기 연주에는 자신이 없는 교사", "제목과 가락을 또렷이 기억", "흥만큼은 넘치는 아이들", "이 곡 알아요!", "순환적 감상 수업", "신체로 체화", "감상의 변화", "음악적 환경", "반복 노출", "음악적 소양", "실제 가락으로 노트가 만들어져요"],group:'edu',code:'음악 · RAS',title:'비트북',topicId:'ras',topic:'t6',ras:true,
+  line:'원곡을 듣고 그 가락으로 리듬을 치는 음악 감상 리듬게임',
+  hook:'한 번 듣고 끝나던 감상곡을, 몸으로 기억하는 곡으로.',
+  summary:'교과서 감상곡·동요·국악·클래식 67곡의 실제 가락으로 노트가 만들어져요. 높은 음은 오른쪽, 낮은 음은 왼쪽으로 내려와 리듬을 치는 일이 곧 가락을 따라가는 일이 됩니다. 감상 → 익히기 → 리듬치기 → 다시 감상으로 이어지는 수업 도구예요.',
+  facts:[['대상','3~6학년 음악'],['수록곡','67곡 · 퍼블릭 도메인'],['준비','브라우저만'],['개인정보','로그인 없음']],
+  feats:[['가락에서 만든 노트','치는 동안 그 곡의 가락이 그대로 울려요. 국악곡은 장구 장단 위에 연주돼요.'],['학년·갈래별 곡','3~6학년 교과서 곡부터 동요·국악·클래식까지 골라요.'],['난이도와 기록','쉬움·보통·어려움과 결과 기록으로 다시 도전하게 해요.']],
+  motive:'저는 음악 듣기는 좋아하지만 악기 연주에는 자신이 없는 교사예요. 그런데 어릴 적 즐겨 하던 리듬 게임 속 클래식 곡만큼은 지금도 제목과 가락을 또렷이 기억하고 있습니다. 직접 손으로 박자를 맞추며 반복해 들었던 경험이 곡을 오래 기억하게 만든 거죠. 우리 반에도 악기는 서툴지만 흥만큼은 넘치는 아이들이 있어요. 그 아이들이 적어도 박자와 가락, 장단에 맞춰 무언가를 누르며 음악에 참여하고, 노래를 들었을 때 “이 곡 알아요!” 하며 감상할 수 있기를 바라는 마음으로 비트북을 만들었습니다.',
+  flow:['원곡 감상 5분','가락·장단 익히기 10분','리듬치기 15분','다시 감상 10분'],
+  apply:[
+   {tag:'음악 수업',type:'감상 중심 · 체험적 학습',title:'듣고, 쳐 보고, 다시 듣는 감상 수업',
+    desc:'원곡 감상에서 시작해 가락과 장단을 탐색하고, 리듬 게임으로 음악 요소를 몸으로 체험한 뒤 다시 감상으로 돌아오는 순환적 감상 수업이에요. 같은 곡을 반복해 만나며 처음과 달라진 감상을 스스로 발견하도록 설계했습니다.',
+    steps:[['원곡 감상','곡의 분위기와 주제 가락에 귀 기울이며 첫 감상을 나눠요.'],
+     ['음악 요소 탐색','가락의 높낮이, 셈여림, 장단의 흐름을 함께 찾아보고 이야기해요.'],
+     ['리듬치기 체험','게임으로 가락과 장단에 맞춰 노트를 누르며 음악 요소를 신체로 체화해요.'],
+     ['재감상·비교','다시 원곡을 듣고 “처음 들었을 때와 무엇이 다르게 들렸는지” 감상의 변화를 말해요.']]},
+   {tag:'RAS 연계',type:'일상 속 음악 환경',title:'쉬는 시간에 흐르는 우리 반 감상곡',
+    desc:'쉬는 시간과 점심시간에 교실 모니터와 연결해 두는 것만으로, 교사가 의도한 음악적 환경이 조성돼요. 플레이하는 친구와 곁에서 듣는 친구 모두가 클래식과 교과서 곡에 반복 노출되며 부담 없이 음악적 소양을 키워 갑니다.',
+    steps:[['환경 조성','쉬는 시간·점심시간에 교실 모니터와 연결해 누구나 플레이할 수 있게 열어 둬요.'],
+     ['자율적 참여','학생들이 스스로 곡과 난이도를 골라 자유롭게 리듬치기에 도전해요.'],
+     ['함께 감상','곁에서 지켜보는 친구들도 자연스럽게 곡을 듣고 가락을 흥얼거려요.'],
+     ['생활 속 기억','반복해서 만난 곡이 “이 곡 알아요!”로 이어지며 음악적 소양이 쌓여요.']]}],
+  applyNote:['운영 팁','비트북과 같은 게임형 웹앱 활동은 교실의 긍정적 보상 체계와 연계할 때, 학습 동기를 이끌어 내는 교사의 강력한 수단 중 하나가 됩니다.'],
+  effects:[['깊어지는 감상','같은 곡을 여러 번 듣고 주제 가락을 기억해요.'],['음악 요소 이해','가락의 높낮이와 절정을 눈과 손으로 느껴요.'],['모두가 참여','악기를 못 다루는 학생도 같은 곡에 함께 참여해요.']],
+  easy:['설치·로그인 없이 브라우저만 있으면 바로 시작해요','전자칠판 한 대부터 1인 1기기까지 교실에 맞춰 운영해요','40분 수업 예시를 그대로 쓸 수 있어요'],
+  pitch:'감상 수업을 ‘몸으로 기억하는 수업’으로 바꾸는 방법과 RAS 연계 음악 프로그램 운영을 소개합니다.',
+  shots:[['bb-play','플레이 화면: 가락을 따라 내려오는 노트'],['bb-flow','수업 흐름: 듣고, 익히고, 쳐 본 뒤 다시 듣기'],['bb-list','곡 목록: 손가락 안내와 학년·갈래 탭'],['bb-forest','요정의 숲 스킨'],['bb-result','결과 창: 등급과 기록 갱신']]},
+
+ {id:'reading',thumb:'tn-reading',hl:["개연성","모둠 영화","SUNO", "학생들도 AI로 영상을 만들어 보면 어떨까?", "상상영화제", "프롬프트를 척척 만들어 냅니다", "기본 절차와 역량", "도구여야 하니까요", "기본기 → 확장 → 창작 → 성찰·개선", "메타인지적 성찰", "순환적 개선", "도구로서의 AI", "AI 리터러시와 비판적 사고력"],group:'edu',code:'RAS 국어 · 공개수업 2026',title:'상상영화제 · 뒷이야기 상상하여 이어 쓰기',topicId:'webapp',topic:'t1',
+  line:'뒷이야기를 상상해 이어 쓰고, AI로 모둠 단편 영화를 만드는 독후 활동',
+  hook:'아이들이 상상한 뒷이야기가, 한 편의 영화가 됩니다.',
+  summary:'4학년 국어 독서 감상문 단원을 ‘상상영화제’로 재구성한 하남 너른강 공개수업 사례예요. 교과서 「알프레드 이야기」를 읽고 감상문 쓰기의 기본기를 다진 뒤, 뒷이야기를 상상해 이어 쓰고 미리캔버스·캔바 AI로 장면을 영상으로 만들어 모둠 영화를 완성합니다. AI는 목적이 아닌, 표현을 돕는 도구로 쓰도록 설계했어요.',
+  facts:[['대상','4학년 국어'],['형태','너른강 공개수업 2026'],['도구','미리캔버스 · 캔바 AI'],['비용','무료 도구']],
+  feats:[['감상문 쓰기의 기본기','감상문, 인물에게 편지 쓰기, 인상 깊은 장면 그리기로 읽기·쓰기 역량을 먼저 다져요.'],['뒷이야기 상상 쓰기','이야기의 흐름과 인물의 성격을 바탕으로 이어질 이야기를 창의적으로 써요.'],['AI 모둠 영화와 프롬프트 다듬기','장면을 AI 영상으로 만들어 이어 붙이고, 어색한 부분을 찾아 프롬프트를 고쳐요.']],
+  motive:'6학년 담임을 계속 맡으며 영상 제작에 꾸준히 관심을 가져 왔어요. 학생들과 만든 5~7분 남짓의 단편 영화는 동료 선생님들께 호평을 받았고, 2025년 졸업식 오프닝을 연 학생 랩 영상과 본식 영상은 교장 선생님과 학부모님들께 큰 박수를 받았습니다. 그때 랩 영상을 만들며 활용한 노래 생성 AI ‘SUNO’의 경험이 “학생들도 AI로 영상을 만들어 보면 어떨까?”라는 질문으로 이어졌어요. 마침 하남 너른강 공개수업을 맡게 되었고, 늘 뻔한 수업을 피하고 싶던 제게 4학년 독서 감상문 단원은 ‘뒷이야기를 상상해 상상영화제를 열자’는 아이디어로 다가왔습니다. 처음에는 ‘프롬프트’라는 말조차 낯설어하던 아이들이, 지금은 캔바와 미리캔버스에서 원하는 결과를 끌어내는 프롬프트를 척척 만들어 냅니다.',
+  stagesLabel:'단원 재구성 · 공개수업 흐름',
+  stagesIntro:'가장 중요하게 둔 원칙은 독서 감상문 쓰기의 기본 절차와 역량을 제쳐 둔 채 AI 영상 만들기의 재미에 치우치지 않는 것이었어요. AI는 어디까지나 수업 목표에 도달하도록 돕는 도구여야 하니까요. 그래서 기본기 → 확장 → 창작 → 성찰·개선으로 이어지도록 단원을 재구성했습니다.',
+  stages:[
+   {no:'앞 차시',area:'읽기',title:'「알프레드 이야기」 깊이 읽기',
+    desc:'교과서의 「알프레드 이야기」를 끝까지 함께 읽으며 인물, 사건, 이야기의 흐름을 정리해요. 이후 모든 활동의 바탕이 되는 텍스트 이해 단계입니다.',
+    acts:['인물·사건·배경 정리','이야기 흐름 파악','인상 깊은 부분 표시하기']},
+   {no:'기본기',area:'쓰기',title:'다양한 방식의 독서 감상문 쓰기',
+    desc:'독서 감상문의 기본 절차(책을 읽은 까닭, 줄거리, 인상 깊은 장면, 생각과 느낌)를 익히고, 같은 책을 다양한 형식으로 표현하며 감상의 폭을 넓혀요.',
+    acts:['기본 독서 감상문 쓰기','인물에게 편지 쓰기','인상 깊은 장면·대사 고르고 그리기']},
+   {no:'창작',area:'상상 · 표현',title:'뒷이야기 상상하여 이어 쓰기 · AI 영상 만들기',
+    desc:'이야기의 개연성과 인물의 성격을 살려 뒷이야기를 이어 쓰고, 장면을 미리캔버스와 캔바로 이미지화한 뒤 짧고 자연스럽게 움직이는 영상으로 만들어요. 모둠원 각자의 장면을 이어 붙여 한 편의 영화를 완성합니다.',
+    acts:['뒷이야기 이어 쓰기','장면 묘사를 프롬프트로 바꾸기','모둠 영상 이어 붙이기']},
+   {no:'공개수업',area:'상상영화제 · 성찰',title:'함께 보고, 어색한 장면의 프롬프트 고치기',
+    desc:'공개수업에서 모둠 영화를 함께 감상하고, 이야기와 어울리지 않거나 어색한 장면을 찾아 그 원인을 프롬프트에서 분석해 고쳐 써요. 결과물을 비판적으로 검토하는 메타인지적 성찰 활동입니다.',
+    acts:['상상영화제 상영','어색한 장면 찾기','프롬프트 수정하기']},
+   {no:'이후 차시',area:'개선',title:'고친 프롬프트로 영상 다시 만들기',
+    desc:'공개수업에서 고친 프롬프트를 실제로 적용해 영상을 더 자연스럽게 다듬어요. 수정 → 적용 → 확인으로 이어지는 순환적 개선 과정을 경험하며 표현의 완성도를 높입니다.',
+    acts:['수정 프롬프트 적용','전·후 영상 비교','최종 영화 완성']}],
+  applyNote:['RAS 연계 포인트','읽기·쓰기의 기본 역량 위에 AI 표현 도구를 얹는 ‘도구로서의 AI’ 설계가 핵심이에요. 글을 장면으로, 장면을 프롬프트로 바꾸는 과정에서 학생들은 자신의 글을 더 구체적이고 정확하게 다시 읽게 되고, 결과물을 고쳐 나가며 AI 리터러시와 비판적 사고력을 함께 기릅니다.'],
+  flow:['읽기','감상문 쓰기','뒷이야기 이어 쓰기','AI 영상 만들기','상상영화제'],
+  effects:[['읽기·쓰기 역량','감상문의 기본 절차를 지키며 다양한 형식으로 생각과 느낌을 표현해요.'],['창의적 표현과 동기','내 글이 영화가 되는 경험이 쓰기에 대한 내적 동기를 높여요.'],['AI 리터러시','결과를 비판적으로 살피고 프롬프트를 고치며 AI를 바르게 쓰는 법을 익혀요.']],
+  easy:['미리캔버스·캔바 등 무료 도구로 바로 시작해요','학생 글과 그림이 그대로 영상의 재료가 돼요','다른 문학 단원에도 같은 흐름을 적용해요'],
+  pitch:'AI 이미지·영상 도구를 국어 수업에 ‘도구’로 녹여, 기본기와 창의성을 함께 잡는 단원 재구성 방법을 공개수업 사례로 나눕니다.',
+  note:'사진 속 학생 얼굴과 이름은 모자이크 처리했습니다.',
+  galLabel:'수업 사례',shots:[['rd-class1','공개수업 · 독서 감상문 5단계로 기본 절차 짚기'],['rd-video','학생이 만든 영상 예시 · 뒷이야기 속 “저요!” 장면'],['read-ai','미리캔버스 AI로 장면 그림과 영상 만들기'],['read-art','학생들이 그린 뒷이야기 장면'],['rd-slide','「알프레드 이야기」 장면으로 이야기 흐름 되짚기'],['rd-essay','기본 독서 감상문 쓰기 결과물'],['rd-letter','인물에게 편지 쓰기 결과물 (이름은 가렸어요)'],['rd-class2','상상영화제 · 모둠 영상을 함께 감상하기'],['rd-write','뒷이야기 상상 활동지에 아이디어 정리하기'],['rd-group','모둠이 함께 어색한 장면을 찾아 프롬프트 고치기']]},
+
+ {id:'museum',thumb:'tn-museum',hl:["롤러코스터 타이쿤", "미술관의 구조를 이해하고", "자신만의 미술관", "2022 개정 교육과정 미술 교과서", "저작권", "퍼블릭 도메인", "소유감", "감상 동기", "미술관 운영과 큐레이팅의 원리", "연계 학습의 출발점"],group:'edu',code:'미술 · RAS ART',title:'뮤지엄 타이쿤',topicId:'ras',topic:'t6',art:true,
+  line:'명작 128점을 모아 나만의 미술관을 운영하는 3D 미술 감상 게임',
+  hook:'아이들이 “왜 이 그림을 여기에 걸었는지” 설명하기 시작합니다.',
+  summary:'학생이 큐레이터가 되어 교과서 명작을 모으고, 벽과 조명을 꾸며 미술관을 운영하는 3D 교육용 게임이에요. 감상 → 큐레이팅 → 미술관 운영으로 이어지는 RAS ART 프로그램으로, 한 학기 ‘우리 학교 미술관’ 프로젝트의 출발점이 됩니다.',
+  facts:[['대상','3~6학년 미술'],['작품','128점 · 21개 사조'],['준비','브라우저'],['특징','도슨트 음성 해설']],
+  feats:[['작품 도감과 도슨트 해설','교과서 명작을 크게 보며 해설을 듣고 감상해요.'],['큐레이팅','사조·조명·벽 색을 고르면 큐레이터 리포트가 점수의 이유를 알려 줘요.'],['미술관 운영','경매, 예산, 관람객 만족도로 미술관 운영과 직업을 경험해요.']],
+  motive:'저는 미술과 체육 수업에 관심이 많은 교사예요. 유럽 여행을 가면 꼭 여러 미술관을 찾아 작품을 관람할 만큼 미술관을 좋아해, 오래전부터 미술관 운영 수업에 관심을 가져 왔습니다. 고민은 하나였어요. 학생들이 다양한 미술관의 구조를 이해하고, 그 공간의 느낌과 분위기까지 느끼게 하려면 어떻게 해야 할까? 그때 떠오른 것이 놀이기구를 설치하며 놀이공원을 운영하던 ‘롤러코스터 타이쿤’이었어요. 학생들이 마음에 드는 작품을 직접 낙찰받고 자신만의 미술관을 꾸며 보면 어떨까, 그 질문이 뮤지엄 타이쿤의 시작이었습니다.',
+  flow:['감상 교육 1~2차시','큐레이팅 교육 2~3차시','미술관 운영 · 진로 연계'],
+  applyIntro:'작품 선정의 첫째 원칙은 2022 개정 교육과정 미술 교과서에 실린 작품, 둘째는 학생들에게 친숙한 인지도 높은 명작이에요. 미술·음악 게임을 만들며 가장 신경 쓴 부분은 저작권이었습니다. 피카소, 장욱진, 김환기의 작품처럼 꼭 넣고 싶었던 작품도 저작권 보호 기간이라 담지 않았고, 저작권이 만료된 퍼블릭 도메인 작품만으로 구성해 수업에서 안심하고 쓸 수 있어요.',
+  apply:[
+   {tag:'미술 수업',type:'감상 중심 학습',title:'감상법을 배우고, 낙찰받고, 깊이 보는 수업',
+    desc:'감상 방법을 먼저 익힌 뒤 게임 속에서 직접 고르고 소장한 작품으로 감상을 실천하는 수업이에요. ‘내가 낙찰받은 작품’이라는 소유감이 작품을 더 오래, 더 깊이 들여다보게 만드는 감상 동기가 됩니다.',
+    steps:[['감상법 익히기','작품의 조형 요소, 표현 방법, 작가의 의도를 살피는 미술 감상 방법을 먼저 배워요.'],
+     ['낙찰과 감상','감상 포인트에 맞는 작품을 경매에서 낙찰받고, 작품 정보와 도슨트 해설을 들으며 감상해요.'],
+     ['수집과 확장','게임을 이어 가며 다양한 시대와 사조의 작품을 모아 감상의 폭을 넓혀요.'],
+     ['느낌 나누기','모은 작품에 대한 느낌과 생각을 친구들과 나누며 감상을 언어로 표현해요.']]},
+   {tag:'RAS · 프로젝트',type:'예술 소양 · 미술관 이해',title:'게임 속 미술관에서 실제 전시로',
+    desc:'RAS 시간과 프로젝트 학습에서는 활동 기회를 최대한 많이 열어 주어 예술 작품에 대한 소양과 미술관에 대한 이해를 함께 키워요. 게임에서 쌓은 경험이 실제 전시 활동으로 이어지는 연계 학습의 출발점이 됩니다.',
+    steps:[['충분한 탐색 기회','쉬는 시간과 RAS 시간에 자유롭게 플레이하며 작품과 미술관을 반복해서 경험해요.'],
+     ['미술관 리포트 분석','큐레이터 리포트의 만족도·조명·동선 지표에서 미술관 운영과 큐레이팅의 원리를 스스로 발견해요.'],
+     ['전시 활동 연계','게임에서 익힌 배치와 조명 전략을 교실 미술관 전시와 도슨트 활동으로 옮겨요.'],
+     ['사조 이해와 표현의 질','다양한 사조를 이해한 경험이 모작과 창작 작품의 완성도를 높여 줘요.']]}],
+  applyNote:['운영 팁','뮤지엄 타이쿤과 같은 게임형 웹앱 활동은 교실의 긍정적 보상 체계와 연계할 때, 학습 동기를 이끌어 내는 교사의 강력한 수단 중 하나가 됩니다.'],
+  effects:[['미적 감수성','작품을 오래 보고 느낌과 근거를 말하는 감상 습관이 생겨요.'],['근거 있는 전시 기획','주제를 정하고 배치의 이유를 설명하는 힘이 길러져요.'],['문화 소양과 진로','미술관과 큐레이터·도슨트 직업을 가깝게 느껴요.']],
+  easy:['설치 없이 브라우저에서 바로 실행해요','단계별 수업 가이드로 한 차시만 골라 써도 돼요','저작권이 끝난 작품과 공공누리 자료로 안심하고 써요'],
+  pitch:'게임으로 감상과 큐레이팅을 연습하고 실제 학교 미술관으로 이어 가는 RAS ART 프로그램 설계를 소개합니다.',
+  related:{id:'docent',label:'다음 단계 · 한 학기 프로젝트',text:'게임에서 기른 안목을 실제 학교 미술관으로 옮겨, 학생들이 직접 도슨트가 되는 15차시 프로젝트로 이어집니다.'},
+  shots:[['mt-layout','3D 미술관과 큐레이터 리포트'],['mt-info','작품 정보 창: 소장처와 나의 해설'],['mt-dex','작품 도감: 128점을 사조별로'],['mt-view','감상하기: 도슨트의 이야기'],['mt-auction','오늘의 경매'],['mt-full','관 전체 3D 화면: 기획전 의뢰 달성도와 수장고'],['mt-close','전시실 확대: 조명·피켓·동선을 직접 배치'],['mt-tips','미술관 운영 팁 보기: 큐레이터 조언과 사조 컬렉션'],['mt-fpv','1인칭 관람 시점: 관람객 눈높이로 전시 돌아보기']]},
+
+ {id:'docent',thumb:'tn-docent',hl:["조명·배치·동선","2학년을 초대해","감상 → 표현 → 전시 → 소통", "프로젝트 학습(PBL)", "작가이자 큐레이터, 도슨트", "모방에서 창조로", "가상 공간의 경험이 실제 공간으로 전이", "이음 수업", "문화적 소양", "과정 중심 평가", "감상·표현·생활화"],group:'edu',code:'미술 · RAS ART · 한 학기 프로젝트',title:'RAS와 연계한 우리 학교 미술관 운영 교육',topicId:'ras',topic:'t6',art:true,
+  line:'감상부터 도슨트까지, 학생이 직접 여는 우리 학교 미술관',
+  hook:'명화를 감상하고, 따라 그리고, 내 작품을 걸고, 직접 설명하는 한 학기.',
+  summary:'미술 사조 감상 → 명화 모작 → 나의 작품 → 미술관 큐레이팅 → 도슨트 전시로 이어지는 15차시 프로젝트 학습이에요. 뮤지엄 타이쿤 경험을 실제 공간으로 옮긴 RAS ART 프로그램으로, 2025년에는 2학년 전체를 초대해 학년 간 이음 수업으로 운영했습니다.',
+  facts:[['기간','한 학기 · 15차시'],['교과','미술 (RAS ART)'],['결과물','모작 · 창작 · 미술관'],['전시','저학년 초대 도슨트 투어']],
+  feats:[['명화 모작과 나의 작품','명화 그리기 키트로 사조와 기법을 익히고 빈 캔버스에 내 작품을 완성해요.'],['실제 공간 큐레이팅','게임에서 연습한 조명과 배치로 교실을 미술관으로 꾸며요.'],['학생 도슨트와 이음 수업','자기 작품과 모작 앞에서 저학년 관람객에게 직접 설명해요.']],
+  flow:['사조 감상 1~3차시','명화 모작 4~7차시','나의 작품 8~10차시','미술관 큐레이팅 11~13차시','도슨트 전시 14~15차시'],
+  stagesIntro:'감상 → 표현 → 전시 → 소통으로 이어지는 15차시 프로젝트 학습(PBL)이에요. 게임 속 가상 미술관에서 익힌 감상과 큐레이팅 경험을 실제 공간으로 옮겨, 학생이 미술관의 작가이자 큐레이터, 도슨트가 됩니다.',
+  stages:[
+   {no:'1~3차시',area:'감상',title:'다양한 사조를 알고 감상하기',
+    desc:'뮤지엄 타이쿤의 작품 도감과 도슨트 해설로 르네상스부터 인상주의, 팝아트까지 사조별 대표작을 만나요. 작품을 ‘보는’ 데서 그치지 않고, 시대와 표현 방식의 차이를 비교하며 감상의 눈을 길러요.',
+    acts:['작품 정보 창으로 작가·시대·배경 읽기','사조별 특징을 비교하는 감상 활동','모작할 작품을 스스로 고르기']},
+   {no:'4~7차시',area:'표현 ①',title:'명화 모작 · 캔버스에 명화 그리기',
+    desc:'명화 그리기 키트로 고른 작품을 모둠이 함께 완성해요. 색면을 하나씩 채워 가며 화가의 색 선택과 구도, 붓 터치를 직접 체험하는 체험 중심의 표현 활동이에요.',
+    acts:['모둠 협업으로 한 작품 완성하기','원작과 비교하며 색·구도 관찰하기','화가의 표현 의도 추론하기']},
+   {no:'8~10차시',area:'표현 ②',title:'나의 작품 그리기',
+    desc:'빈 캔버스 앞에서 감상과 모작으로 익힌 사조와 기법을 응용해 나만의 작품을 창작해요. 모방에서 창조로 나아가는 단계로, 작품의 제목과 작가 노트까지 스스로 완성합니다.',
+    acts:['영감을 받은 사조와 주제 정하기','아이디어 스케치 후 캔버스에 표현','작품 제목과 작가 노트 쓰기']},
+   {no:'11~13차시',area:'큐레이팅',title:'뮤지엄 타이쿤 × 실제 미술관 큐레이팅',
+    desc:'뮤지엄 타이쿤을 이어서 플레이하며 조명·배치·동선이 관람 만족도를 바꾸는 원리를 익히고, 그 전략을 실제 교실에 적용해요. 가상 공간의 경험이 실제 공간으로 전이되는 순간입니다.',
+    acts:['전시 주제와 관람 동선 기획','조명과 작품 배치로 공간 연출','작품 캡션·퀴즈·퍼즐 등 체험 코너 준비']},
+   {no:'14~15차시',area:'소통 · 도슨트',title:'우리 학교 미술관 도슨트 활동',
+    desc:'학생 도슨트가 자신의 작품과 모작 앞에서 관람객에게 작품을 설명해요. 2025년에는 2학년을 초대해 1~4교시 동안 미술관 활동을 진행했고, 학년 간 이음 수업으로 저학년의 문화적 소양을 함께 키웠습니다.',
+    acts:['작품 해설 원고 쓰고 리허설하기','관람객 맞이와 도슨트 투어','2학년 초대 이음 수업 · 퀴즈·퍼즐 코너 운영']}],
+  applyNote:['RAS ART 연계 포인트','감상·표현·생활화의 미술과 영역을 한 프로젝트 안에서 통합하고, 게임 속 가상 경험을 실제 공간의 전시로 전이시키는 것이 핵심이에요. 모작과 창작, 큐레이팅, 도슨트 원고까지 학생의 결과물이 단계마다 쌓여 과정 중심 평가의 근거가 되고, 저학년을 초대하는 이음 수업은 상급 학년에게는 책임감과 표현력을, 하급 학년에게는 문화적 소양을 선물합니다.'],
+  effects:[['사조 이해와 표현','감상한 사조를 직접 그려 보며 기법을 몸으로 익혀요.'],['말하기 자신감','관람객 앞에서 작품을 설명하며 발표 자신감이 자라요.'],['저학년 문화 소양','형·누나의 해설로 명화를 처음 만나는 경험을 선물해요.']],
+  easy:['명화 그리기 키트로 그림에 자신 없는 학생도 완성해요','뮤지엄 타이쿤으로 큐레이팅을 미리 연습해요','교실 하나와 조명 몇 개로 미술관이 완성돼요'],
+  pitch:'게임 → 모작 → 창작 → 전시로 이어지는 한 학기 미술 프로젝트를 다른 학교에서도 그대로 운영할 수 있도록 단계별로 안내합니다.',
+  related:{id:'museum',label:'함께 쓰는 게임 · 1~3, 11~13차시',text:'뮤지엄 타이쿤으로 감상과 큐레이팅을 연습하며 프로젝트를 시작합니다.'},
+  note:'사진 속 학생 얼굴은 모두 모자이크 처리했습니다.',
+  galLabel:'수업 사례',shots:[['dc-pop','팝아트 모작 앞에서 작품을 소개하는 학생 도슨트'],['dc-paint1','명화 모작 · 완성한 모작 세 점을 소개하는 학생'],['dc-paint2','명화 모작 · 모둠이 함께 캔버스를 채워 가는 시간'],['dc-paint3','나의 작품 그리기 · 작품을 두고 감상과 의견 나누기'],['dc-ex1','다양한 전시 · 자연물과 조명으로 꾸민 설치 전시'],['dc-ex2','다양한 전시 · 태블릿으로 쌓은 캐릭터 미디어 전시'],['dc-ex3','다양한 전시 · 조명을 비춘 모작·창작 작품 전시'],['dc-cartoon','도슨트 활동 · 조명을 비춘 학생 작품 앞 해설'],['dc-nature','도슨트 활동 · 자연미술 영상 작품 소개'],['dc-trojan','이음 수업 · 비디오아트 ‘AI 트로이의 목마’를 관람하는 2학년'],['dc-class','이음 수업 · 미술관 수업 퀴즈 및 퍼즐 코너 운영']]},
+
+ {id:'neis',thumb:'tn-neis',group:'work',code:'업무 · 생활기록부',title:'참교사를 위한 나이스 생성기',topicId:'office',topic:'t4',work:true,
+  line:'관찰한 그대로, 학생을 닮은 생활기록부 문장을 만드는 도우미',
+  hook:'학생 한 명 한 명을 닮게 써 주고 싶은 마음은 지키고, 시간은 줄입니다.',
+  summary:'학생 특성을 세밀하게 고르면 행동특성·교과발달·창체 문장을 만들어 주는 생활기록부 문장 도우미예요. 학년부장이 평가 내역을 한 번 등록하면 학년 전체가 함께 쓰고, 선생님 본인의 Claude 계정과 연동해 사용합니다.',
+  facts:[['대상','담임 · 학년부장'],['범위','행발 · 교과 · 창체'],['준비','Claude 계정'],['특징','학년 일괄 등록']],
+  feats:[['학생 특성 선택','성격·강점·교우관계·상황 반응을 골라 학생마다 다른 문장을 만들어요.'],['학년 일괄 등록','평가 내역을 한 번 등록하면 학년 전체 반에 적용돼요.'],['직위·번호별 보기','임원 학생 기록과 번호별 정리까지 한 화면에서 해요.']],
+  flowLabel:'업무에 이렇게 씁니다',
+  flow:['반 만들기','학생 특성 체크','문장 생성','교사가 읽고 고쳐 입력'],
+  effects:[['마감 시간 단축','학년말 생활기록부 작성 시간을 크게 줄여요.'],['학생별 개별화','비슷한 문장 대신 학생 특성이 드러나는 기록을 써요.'],['학년 일관성','같은 평가 기준으로 학년 전체 기록의 질을 맞춰요.']],
+  easy:['링크에 들어가 Claude 계정만 연동하면 돼요','학생 이름 등 개인정보 없이 번호와 특성만 써요','만든 문장은 교사가 읽고 고쳐 쓰는 원칙을 지켜요'],
+  pitch:'생활기록부처럼 반복되는 문서 업무를 AI로 줄이되, 교사의 관찰과 책임은 지키는 방법을 실제 도구와 함께 다룹니다.',
+  shots:[['neis-out','생성 결과: 행동특성과 과목별 문장'],['neis-setting','학생 특성·활동 설정']]},
+
+ {id:'room',thumb:'tn-room',group:'work',code:'업무 · 학교 운영',title:'특별실 예약 시스템',topicId:'office',topic:'t4',work:true,
+  line:'한눈에 보고 바로 예약하는 특별실 관리',
+  hook:'“체육관 비었나요?” 묻지 않아도 되는 교무실.',
+  summary:'체육관·운동장·컴퓨터실 등 특별실 예약 현황을 요일·교시별로 한눈에 보고 바로 예약하는 시스템이에요. 매주 반복 예약과 여러 칸 한 번에 선택, 강사 시간표 불러오기로 선생님들이 직접 확인하고 예약하며 잘 쓰고 있습니다.',
+  facts:[['대상','전 교직원'],['범위','특별실 10곳'],['준비','학교 구글 계정'],['특징','반복 · 다중 예약']],
+  feats:[['한눈에 보는 현황','요일·교시별로 모든 특별실 예약 상황을 보여 줘요.'],['반복·다중 예약','매주 같은 시간 반복 예약과 여러 칸 한 번에 선택이 돼요.'],['시간표 연동','정보·체육 강사 시간표를 불러와 겹치지 않게 관리해요.']],
+  flowLabel:'업무에 이렇게 씁니다',
+  flow:['특별실 · 시간 설정','강사 시간표 불러오기','선생님들이 직접 예약','현황 공유'],
+  effects:[['조율 시간 절감','메신저로 묻고 답하던 시간이 사라져요.'],['겹침 예방','강사 시간과 반복 예약이 미리 보여 충돌이 줄어요.'],['공정한 사용','먼저 잡은 사람이 예약되는 명확한 규칙이 생겨요.']],
+  easy:['학교 구글 계정으로 무료 운영해요','특별실 이름과 시정만 바꾸면 어느 학교든 써요','스마트 온라인 교무실 안에서도 같은 기능을 써요'],
+  pitch:'학교마다 있는 작은 불편을 AI로 직접 해결한 첫 업무 도구 사례로, 업무 도구 만들기의 출발점을 보여 줍니다.',
+  shots:[['room-grid','요일·교시별 특별실 예약 현황'],['room-modal','매주 같은 요일·교시 반복 예약']]},
+
+ {id:'office',thumb:'tn-office',hl:["학교 양식에 맞춰 자동","특별실 예약","강사 배치","아무도 쓰지 않는", "남은 선생님들께 꼭 선물을 남기고 싶었습니다", "제가 떠난 뒤에도 계속 쓸 수 있도록", "구글 앱스 스크립트", "교사로서 직접 겪은 불편함", "오래 잘 쓰일 것 같은 예감"],group:'work',code:'업무 · 신평초 사례',title:'스마트 온라인 교무실',topicId:'office',topic:'t4',work:true,
+  demo:{url:'https://namgh1992-alt.github.io/exsmartclass/',t:'교무실 시연용 모델하우스',d:'설치 없이 바로 열리는 시연판이에요. 예시 학교 자료로 모든 메뉴를 직접 눌러 볼 수 있어요.'},
+  line:'다른 앱이 필요 없는, 선생님들의 하루를 한곳에 모은 교무실',
+  hook:'메신저, 공유 문서, 예약 시트, 시간표 프로그램… 이제 하나면 됩니다.',
+  summary:'공지와 협의록, 일정과 제출, 특별실 예약과 결보강, 1년 시간표와 주간학습 안내, 예산과 학급운영비 정산까지 학교 업무를 한곳에 모은 교직원 전용 공간이에요. 실제로 쓰는 선생님들의 요청을 반영해 버튼 하나 위치까지 사용자 중심으로 다듬었습니다.',
+  facts:[['대상','학교 전 교직원'],['구성','16개 장 · 업무 가이드 15개'],['준비','학교 구글 계정'],['학생 정보','다루지 않음']],
+  feats:[['소통','공지 확인 현황, 협의록 열람 권한, 바로 집계되는 설문.'],['업무','학교 일정, 제출 현황, 특별실 예약, 보강 교사 자동 추천, 주간·월간 업무계획 자동 작성.'],['수업과 살림','1년 시간표 자동 편성, 진도표 기반 주간학습 안내, 예산 관리, 영수증을 읽는 학급운영비 정산.']],
+  motive:'스마트 교무실은 “아무도 쓰지 않는 우리 학교 온라인 교무실을 어떻게 다시 살릴 수 있을까?”라는 고민에서 시작했어요. 솔직히 근무 5년 차라 곧 학교를 떠나는 입장이어서 모른 척 지나갈 수도 있었지만, 남은 선생님들께 꼭 선물을 남기고 싶었습니다. 그래서 보안을 지키면서도 제가 떠난 뒤에도 계속 쓸 수 있도록, 학교 계정 기반의 구글 앱스 스크립트로 구축했어요. 기능은 모두 교사로서 직접 겪은 불편함에서 출발했습니다. 업무하며 가장 필요했던 강사 배치 프로그램, 체육하러 갈 때마다 겹쳐서 번번이 발길을 돌려야 했던 경험으로 만든 특별실 예약, 늘 애써 주시는 주무관님들을 위해 학교 양식에 맞춰 자동 인쇄되는 주간·월간 업무계획, 노션을 따로 쓰지 않아도 되도록 필요한 기능을 모두 담은 학년별 교무실, 학기 초 시간표 짜기와 법정 시수 맞추기, 주간학습 안내까지 다 설명하기 어려울 만큼 많은 기능을 하나씩 채워 넣었어요. 업체가 만든 시스템처럼 완벽하지는 않고 문제가 생길 수도 있겠지만, 교사가 고민하고 정성 들여 만든 도구라는 것을 선생님들이 알아봐 주시는 만큼, 기존 온라인 교무실과 달리 오래 잘 쓰일 것 같은 예감이 듭니다.',
+  flowLabel:'학교에 이렇게 씁니다',
+  flow:['가입 · 승인','홈에서 오늘 할 일 확인','부서 · 학년 교무실 협업','학년도 전환 · 인수인계'],
+  effects:[['업무 시간 절감','반복 문서와 정산, 시간표 작업이 자동으로 채워져요.'],['정보 공유','읽지 않은 공지와 마감 업무가 한눈에 보여 놓치는 일이 줄어요.'],['이어지는 학교','인수인계와 학년도 전환으로 담당자가 바뀌어도 업무가 이어져요.']],
+  easy:['학교 구글 계정으로 무료로 설치해요','설치 없이 열리는 모델하우스로 미리 체험해요','화면마다 붙은 업무 가이드가 다음 할 일을 알려 줘요'],
+  pitch:'우리 학교에 꼭 맞는 온라인 교무실을 AI로 직접 만든 과정과, 다른 학교가 그대로 도입하는 방법까지 보여 줍니다.',
+  shots:[['of-home','홈 화면: 오늘 시정, 공지와 나의 오늘'],['of-cards','홈 카드: 우선 업무 TOP 3와 이번 주 일정'],['of-sub','출장 · 결보강: 보강 교사 추천'],['of-weekly','주간업무계획: 학교 양식 그대로 자동 작성'],['of-book','특별실 예약: 학년별 색과 교시 표시'],['of-minutes','협의록 · 회의록'],['of-counsel','상담 가이드라인: 512개 생활지도·민원 사례를 상황별로 찾고, 대응 순서와 교사 말하기 예시까지 확인'],['of-lecture','강사 시간표 자동 배치: 대상 학년·총 시수·제약 조건을 넣으면 들어갈 수 있는 빈 칸을 찾아 표시'],['of-budget','예산 관리: 세부사업별 집행률과 월별 사용액을 한눈에 보고, 내 예산을 따로 모아 관리'],['of-calendar','학교 일정: 부서·학년 일정과 출장이 한 캘린더에 모이고, 주간·월간 업무계획을 한글 파일로 바로 받기'],['of-hours','시수 맞추기: 학급 기본 시간표에 학사 일정과 행사를 넣어 1년 시수를 자동으로 맞추고 학기별 목표 대비 현황 확인']]}
+];
+const TOPICS=[
+ {id:'start',cb:'t0',title:'AI로 시작하는 수업 첫걸음',sub:'Teacher’s Claude-ING · 1강 · AI 첫걸음, 교직에 클로드 녹여내기',meta:'교사 · 교직원 연수 · 2~3시간 · 실습형',
+  line:'AI 도구 고르기부터 프롬프트, 나이스, 업무 계획서, 나만의 업무 비서, 직접 만든 앱 수업까지. 2~3시간 동안 직접 해 보며 익히는 입문 강의.',
+  lead:'“AI를 써 봤는데 별로던데요?” 그 답답함이 어디서 오는지부터 짚어 봅니다. 2~3시간 동안 7개 장을 따라가며, 선생님이 매일 하는 일 가운데 AI에게 맡길 수 있는 부분을 직접 찾아 실행해 봅니다. 받아 적지 않으셔도 돼요. 강의에 나오는 프롬프트와 프로그램은 강의가 끝난 뒤 리뷰 이벤트로 공유드립니다.',
+  facts:[['강의 시간','2~3시간 (1강)'],['진행 방식','시연 + 실전 미션 4회'],['준비물','노트북, Claude 계정 로그인'],['대상','AI를 처음 시작하는 교사 · 교직원']],
+  forWho:['AI를 몇 번 써 봤지만 답변이 늘 “평범했던” 선생님','생활기록부 마감 철마다 밤을 새우는 담임 선생님','처음 맡은 부장 업무와 행사 계획서가 막막한 선생님','코딩은 무섭지만 내 수업에 맞는 앱을 갖고 싶은 선생님'],
+  chapters:[
+   {n:'01',t:'AI 도구, 어떤 게 좋을까?',h:'GPT, Claude, Gemini. 교사 업무에 별점을 매긴다면 어떤 결과가 나올까요? 그리고 2025년 새로 생긴 법 조항 때문에 선생님이 꼭 알아야 할 “넘으면 안 되는 선”이 있습니다.',img:'cl-tools',cap:'교사 업무 기준 모델 비교표는 강의에서 공개합니다',lock:['모델별 별점 비교','개인정보 안전수칙과 권장 설정']},
+   {n:'02',t:'프롬프트는 어떻게 쓰지?',h:'답변이 별로인 이유는 AI가 아니라 질문에 있습니다. “신규 발령 교사에게 설명하듯” 쓰는 6가지 요소와, 결과를 한 단계 더 끌어올리는 5가지 기법을 배웁니다.',img:'cl-6',cap:'프롬프트 6요소 R·C·T·F·C·E',mission:'오늘 저녁 메뉴, 6요소로 추천받아 보기',lock:['가장 강력하다는 4번째 기법','“주문”이 아니라 “협업”하는 대화법']},
+   {n:'03',t:'클로드 답변 수준을 높이려면?',h:'같은 질문도 누가 묻느냐에 따라 답이 달라집니다. 역할을 세 겹으로 쌓는 페르소나 구조, 그리고 지적받기 전에 먼저 지적받는 “악마의 변호인” 프롬프트를 만나 보세요.',img:'cl-persona',cap:'페르소나 3층 구조: 정체성 · 관점 · 기준',mission:'올해 내 업무를 7단계 매트릭스로 쪼개 보기',lock:['다중 역할 릴레이','업무 단계별 매트릭스와 타임라인']},
+   {n:'04',t:'귀찮은 나이스도 이젠 클로드로?',h:'행발, 교과 세특, 창체 누가기록. 30명 문장이 서로 비슷해지는 문제는 어떻게 풀까요? 원하는 결과를 안정적으로 뽑아내는 “마법의 세부 갈래 설계”가 핵심입니다.',img:'cl-magic',cap:'MBTI식 하위 항목 분할법의 세부 갈래표는 강의에서 공개합니다',mission:'직접 설계한 나이스 도우미로 1번 학생 문장 만들어 보기',lock:['익명화 5단계 처리 과정','30명 중복 표현 막는 제약']},
+   {n:'05',t:'부장도 문제없다고? 칼퇴부장 되는 법',h:'과학·정보·체육·안전 부장을 한꺼번에 맡고도 칼퇴할 수 있었던 이유. 이원목적분류표부터 시작하는 평가지 제작, 작년 계획서로 올해 계획서 만들기, 그리고 운동회 업무를 하루 만에 끝낸 실제 과정을 보여 드립니다.',img:'cl-sports',cap:'체육 운동회 업무, 하루 만에 끝내는 방법',lock:['15분 만에 만든 운영계획서','자리배치도와 초대장까지 한 번에']},
+   {n:'06',t:'내 업무 비서를 만들어 보자!',h:'매번 문서를 다시 올리고 맥락을 설명하는 일은 이제 그만. 학교 교육계획서를 학습시켜 “찰떡같이” 대답하는 나만의 비서를 만들고, 경기도교육청 G-ONE과 어떻게 함께 쓸지도 다룹니다.',img:'cl-secretary',cap:'Claude 프로젝트로 비서 만들기 5단계',lock:['2~3개년 문서를 올려야 하는 이유','비서의 답을 검증하는 질문법']},
+   {n:'07',t:'자체 제작 앱으로 나만의 수업 만들기',h:'말로 지시하면 AI가 코드를 짜 주는 “바이브 코딩”. 학급 경제 앱, 달 관찰 프로젝트, 생태계 도감 게임, 학교 온라인 교무실까지, 코딩을 몰랐던 교사가 만든 실제 사례를 보여 드립니다.',img:'cl-game',cap:'직접 만든 생태계 탐험대 게임 화면',mission:'한 줄 지시로 지뢰찾기 게임 만들고 나만의 디자인 입히기',lock:['아티팩트·앱스 스크립트·외부 배포의 차이','앱 종류별로 데이터가 저장되는 곳']}],
+  closing:{img:'cl-end',text:'저도 코딩이 이해도 안 되고 무서워 엄두도 못 냈던 사람이었습니다. 두려워하지 마시고, 오늘부터 바로 시작해 보세요.'},
+  next:'앱 제작·배포 실습과 학교운영위원회 심의 통과 방법은 2강에서 이어집니다.',
+  cases:['neis','economy','ecosystem','room']},
+ {id:'webapp',cb:'t1',title:'교사가 직접 만드는 수업용 웹앱과 게임',sub:'코딩 없이 AI로 수업 도구와 교육과정 연계 게임 만들기',meta:'교사 연수 · 사례·실습형',
+  line:'코딩 경험 없이 AI로 수업 도구와 교육과정 연계 게임을 기획하고 완성하는 과정. 실제 수업 적용 사례로 게임 수업 설계까지 다룹니다.',
+  lead:'생태계 탐험대, 역사 영웅 대전처럼 교실에서 실제로 쓰고 있는 웹앱과 게임을 직접 보여 드리고, 선생님이 자기 수업에 맞는 도구를 AI와 함께 만들어 보는 연수입니다. 코딩을 몰라도 수업의 필요를 기능으로 바꾸는 방법에 집중합니다.',
+  forWho:['코딩 경험은 없지만 수업 도구를 직접 만들어 보고 싶은 선생님','게임 요소로 학생 참여를 높이고 싶은 선생님','이미 AI를 쓰고 있지만 결과물을 수업에 바로 적용하기 어려웠던 선생님'],
+  learn:[['기획','수업 목표와 학생의 필요를 기능 목록으로 바꾸는 방법'],['제작','Claude와 대화하며 웹앱을 만들고 고쳐 나가는 요령'],['게임 설계','교과서 내용을 도감·스토리·대전 같은 게임 규칙으로 옮기는 법'],['교실 운영','학생 계정, 선생님 모드, 보상처럼 실제 운영에 필요한 기능'],['수업 적용','진도 후 정리 활동 등 수업 흐름 안에 게임을 넣는 방법']],
+  outline:[['사례로 보는 가능성','생태계 탐험대 · 역사 영웅 대전 시연'],['수업 목표를 기능으로','우리 반에 필요한 도구 기획하기'],['AI와 함께 만들기','작은 수업 도구 직접 완성하기'],['교실 적용과 Q&A','운영 팁과 시행착오 나누기']],
+  cases:['ecosystem','history','moon','reading']},
+ {id:'economy',cb:'t3',req:true,title:'학급경제 플랫폼과 생활지도',sub:'경제교육과 생활지도를 하나로 묶는 학급 운영',meta:'교사 연수 · 학급경영',
+  line:'직접 만든 학급 경제 플랫폼으로 경제교육과 생활지도를 하나로 묶어 학급을 운영한 사례와 정착 과정.',
+  lead:'반 전체가 하나의 경제 생태계로 돌아가는 ‘우리 반 경제 교실’ 운영 경험을 나눕니다. 우리 반의 법에서 시작해 직업과 주급, 발표·식사 보상, 세금과 주식·채권까지 학생이 주도하는 학급 경제를 어떻게 설계하고 정착시켰는지 보여 드립니다.',
+  forWho:['학급 경제 활동을 시작하거나 체계를 다시 잡고 싶은 선생님','생활지도를 보상 체계와 자연스럽게 연결하고 싶은 선생님','여러 학급이 함께 쓰는 학년 단위 운영을 고민하는 학년부'],
+  learn:[['우리 반의 법','지키면 상금, 어기면 세금이 붙는 학급 법 세우기'],['직업과 권한','1인 1역 직업, 주급, 직업별 보기·수정 권한 나누기'],['생활지도 연계','발표·성실 점수와 식사 포인트로 부담 없이 지도하기'],['경제 개념 확장','국세청, 회사, 주식, 채권으로 이어지는 학년별 심화'],['공동 운영','다른 학급과 같은 플랫폼을 함께 쓰는 방법']],
+  outline:[['학급 경제 생태계 둘러보기','플랫폼 시연과 1년 운영 흐름'],['법과 보상 체계 만들기','우리 반에 맞는 조항 설계'],['직업·권한·주급 설계','학생이 주도하는 역할 나누기'],['주식·채권으로 확장','학년별 적용 팁과 Q&A']],
+  cases:['economy']},
+ {id:'office',cb:'t4',title:'AI로 제작한 우리 학교 스마트 교무실',sub:'반복 업무를 덜어 주는 학교 맞춤 도구 만들기',meta:'교직원 연수 · 사례·실습형',
+  line:'학교 업무의 흐름을 AI로 만든 도구로 정리한 구축 사례. 반복 업무를 덜어주는 프로그램을 만들고 학교에 퍼뜨린 과정.',
+  lead:'나이스 생성기와 특별실 예약 시스템처럼 동료 선생님들이 실제로 쓰고 있는 업무 도구를 만든 경험을 나눕니다. 어떤 업무를 도구로 바꿀지 고르는 법부터 학교 전체가 함께 쓰게 만드는 과정까지 다룹니다.',
+  forWho:['반복되는 학교 업무를 줄이고 싶은 선생님','학교 공용 도구를 직접 만들어 보고 싶은 업무 담당자','교무실 디지털 전환을 고민하는 학교 관리자'],
+  learn:[['업무 찾기','업무 흐름에서 도구로 바꾸면 효과가 큰 부분 고르기'],['생활기록부','학생 특성을 세밀하게 담는 문장 도우미 활용법'],['학교 공용 도구','특별실 예약처럼 여러 선생님이 함께 쓰는 시스템 만들기'],['확산','동료 선생님들이 실제로 쓰게 만드는 안내와 운영']],
+  outline:[['스마트 교무실 사례 소개','나이스 생성기 · 특별실 예약 시연'],['우리 학교 업무 지도 그리기','자동화할 업무 고르기'],['AI와 함께 도구 만들기','간단한 학교 공용 도구 실습'],['학교에 정착시키기','안내·운영 팁과 Q&A']],
+  cases:['office','neis','room']},
+ {id:'ras',cb:'t6',req:true,title:'AI로 완성하는 RAS 프로그램',sub:'학생이 만들고 참여하는 학교 단위 AI 프로그램',meta:'교사 연수 · 학교 단위 프로그램 설계',
+  line:'RAS와 연계해 학생이 직접 만들고 참여하는 AI 프로그램을 학교 안에서 운영한 과정.',
+  lead:'미술 감상에서 미술관 운영까지 이어지는 뮤지엄 타이쿤, 체육 전술과 자세를 스스로 점검하는 무브 택틱스 아레나, 음악 감상 노트 게임 비트북까지, RAS와 연계해 학교 안에서 운영한 AI 프로그램을 소개합니다. 교과 수업과 프로젝트로 이어지는 단계별 설계를 함께 나눕니다.',
+  forWho:['RAS와 연계한 교과 프로그램을 기획하는 선생님','감상·체육 수업에 AI를 의미 있게 들여오고 싶은 선생님','학교 단위 프로젝트와 공개수업을 준비하는 선생님'],
+  learn:[['미술','감상 → 큐레이팅 → 미술관 운영으로 이어지는 단계별 수업'],['체육','작전판과 자세 분석으로 학생이 스스로 점검하는 수업'],['음악','교과서 음악 감상을 노트 게임으로 만드는 방법'],['프로젝트 연계','도슨트 큐레이팅, AI 영상 제작 공개수업으로 확장하기'],['안전한 운영','사진·영상을 다룰 때의 동의 절차와 운영 원칙']],
+  outline:[['RAS 연계 프로그램 둘러보기','뮤지엄 타이쿤 · 무브 택틱스 아레나 시연'],['교과별 설계','감상·체육·음악 수업에 녹이는 법'],['프로젝트로 확장','도슨트 큐레이팅과 공개수업 사례'],['운영 원칙과 Q&A','동의 절차와 학교 단위 운영 팁']],
+  cases:['museum','move','beatbook','docent']}
+];
+</script>
+<script>
+(function(){
+  const $=id=>document.getElementById(id);
+  const STATUS={new:'신규',contacted:'연락함',confirmed:'확정',closed:'종료'};
+  const DEFAULT_TIMES=['10:00','13:00','14:30','16:00','19:00'];
+  const DOW=['일','월','화','수','목','금','토'];
+  /* ===== 설정: 구글 앱스 스크립트 웹 앱 주소를 따옴표 안에 붙여 넣으세요 ===== */
+  const API_URL='https://script.google.com/macros/s/AKfycbwq99TqzOjjNW4Kj1K4ZRz_dN7Rkp0TzRrJj9ZO6CqHLJ5zknRIe4m_O8gKoORKh_ahzA/exec';
+  /* =========================================================================== */
+  let db=null,user=null,uid=null,canWrite=true,isAdmin=false, token=null;
+  async function api(payload){
+    if(!API_URL)throw new Error('no_api');
+    const r=await fetch(API_URL,{method:'POST',body:JSON.stringify(payload)});
+    const j=await r.json();
+    if(!j.ok){const e=new Error(j.error||'error');e.code=j.error;throw e}
+    return j;
+  }
+  let sched={open:{},booked:{}}, schedLoaded=false;
+
+  const pad=n=>String(n).padStart(2,'0');
+  const ymd=d=>d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate());
+  const today=ymd(new Date());
+  const fmtDate=s=>{const [y,m,d]=s.split('-').map(Number);const w=DOW[new Date(y,m-1,d).getDay()];return `${m}월 ${d}일 (${w})`};
+  const openTimes=d=>[...(sched.open[d]||[])].sort();
+  const bookedOf=d=>sched.booked[d]||{};
+  const freeTimes=d=>openTimes(d).filter(t=>!bookedOf(d)[t]);
+
+  /* ---------- 사례 목록 · 상세 페이지 ---------- */
+  const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+  const reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const img=k=>`shots/${k}.jpg`;
+  const FEATURED=[['office','fe-office','업무'],['docent','fe-docent','미술 · RAS'],['economy','fe-economy','학급경영'],['history','fe-history','사회']];
+  const caseRow=c=>{
+    const thumb=c.shots?`<img src="${img(c.thumb||c.shots[0][0])}" alt="" loading="lazy">`:`<span>${esc(c.title[0])}</span>`;
+    const body=`<div class="thumb">${thumb}</div><div style="min-width:0"><div class="code">${esc(c.code)}</div><h3>${esc(c.title)}</h3><p>${esc(c.line)}</p></div>`;
+    return c.soon?`<div class="case-item soon">${body}<span class="badge">소개 준비 중</span></div>`
+                 :`<a class="case-item" href="#case-${c.id}">${body}<span class="arr" aria-hidden="true">→</span></a>`;
+  };
+  function renderLists(){
+    const car=$('featured');
+    car.innerHTML=FEATURED.map(([id,im,tag])=>{const c=CASES.find(x=>x.id===id);return `<a class="slide-card" href="#case-${c.id}"><img src="${img(im)}" alt="" loading="lazy"><div class="sc-cap"><span>${esc(tag)}</span><b>${esc(c.title)}</b><small>${esc(c.line)}</small></div></a>`}).join('');
+    $('featDots').innerHTML=FEATURED.map((_,i)=>`<i${i?'':' class="on"'}></i>`).join('');
+    car.addEventListener('scroll',()=>{const i=Math.round(car.scrollLeft/car.clientWidth);[...$('featDots').children].forEach((d,k)=>d.classList.toggle('on',k===i))},{passive:true});
+    $('caseCount').textContent=`(${CASES.length})`;
+  }
+  const live=CASES.filter(c=>!c.soon);
+  const GHL=['긍정적 보상 체계','교사의 강력한 수단','2022 개정 교육과정'];
+  let curHL=null;
+  function rt(t){let x=esc(t).replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>');const list=(curHL||[]).concat(GHL).map(esc).filter(Boolean).sort((a,b)=>b.length-a.length);if(!list.length)return x;const re=new RegExp('('+list.map(v=>v.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')).join('|')+')','g');return x.split(/(<[^>]+>)/).map(seg=>seg.startsWith('<')?seg:seg.replace(re,'<strong>$1</strong>')).join('')}
+  function paras(t,max){max=max||95;const out=[];String(t).split(/\n+/).forEach(block=>{const ss=block.split(/(?<=[.!?][”’'"]?)\s+/);let cur='';ss.forEach(x=>{if(cur&&(cur+' '+x).length>max){out.push(cur);cur=x}else cur=cur?cur+' '+x:x});if(cur)out.push(cur)});return out}
+  const rp=(t,cls,max)=>paras(t,max).map(x=>`<p${cls?` class="${cls}"`:''}>${rt(x)}</p>`).join('');
+  function renderDetail(c){
+    curHL=c.hl||[];
+    const back=lastList||'cases';
+    const i=live.indexOf(c),prev=live[i-1],next=live[i+1];
+    const tp=TOPICS.find(t=>t.id===c.topicId);
+    const shot=(s,lazy)=>`<figure class="shot${s[2]?' tall':''}"><div class="frame"><img src="${img(s[0])}" alt="${esc(s[1])}" data-cap="${esc(s[1])}"${lazy?' loading="lazy"':''}></div><figcaption>${esc(s[1])}</figcaption></figure>`;
+    let h=`<div class="runhead"><span>Case Study</span><i>|</i><span>${esc(c.title)}</span></div><a class="back" href="#${back}">← ${back.startsWith('more')?'모든 사례로':'프로필로'} 돌아가기</a>
+      <header class="d-head">${c.art?'<span class="ras">RAS · ART</span>':c.ras?'<span class="ras">RAS</span>':''}<div class="eyebrow">${esc(c.code)}</div><h1 class="d-title">${esc(c.title)}</h1><p class="d-sub">${esc(c.line)}</p></header>`;
+    h+=`<div class="facts">${c.facts.map(f=>`<div><small>${esc(f[0])}</small><b>${esc(f[1])}</b></div>`).join('')}</div>`;
+    h+=shot(c.shots[0],false);
+    if(c.demo)h+=`<a class="demo-banner" href="${esc(c.demo.url)}" target="_blank" rel="noopener"><span class="db-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4M10 8.5l4 2-4 2z"/></svg></span><span class="db-txt"><small>LIVE DEMO</small><b>${esc(c.demo.t)} 체험하기</b><span>${esc(c.demo.d)}</span></span><span class="db-arr" aria-hidden="true">↗</span></a>`;
+    h+=`<section class="cs-sum"><p class="cs-hook">${esc(c.hook)}</p>${rp(c.summary,'',110)}</section>`;
+    if(c.motive)h+=`<section class="cs-motive"><div class="am-k">WHY I MADE IT</div><h2>만들게 된 이유</h2>${rp(c.motive,'',90)}</section>`;
+    h+=`<section><div class="sec-head"><h2>핵심 기능</h2></div><div class="cs-feats">${c.feats.map((f,k)=>`<div class="cs-feat"><span>${k+1}</span><b>${esc(f[0])}</b><p>${rt(f[1])}</p></div>`).join('')}</div></section>`;
+    if(c.stages)h+=`<section><div class="sec-head"><h2>수업에 이렇게 씁니다</h2><small>${esc(c.stagesLabel||'한 학기 15차시')}</small></div>${c.stagesIntro?`<div class="st-intro">${rp(c.stagesIntro,'',100)}</div>`:''}<ol class="stages">${c.stages.map(t=>`<li class="st"><div class="st-side"><span class="st-no">${esc(t.no)}</span><small>${esc(t.area)}</small></div><div class="st-body"><b>${esc(t.title)}</b>${rp(t.desc,'',100)}<ul>${t.acts.map(a=>`<li>${esc(a)}</li>`).join('')}</ul></div></li>`).join('')}</ol>${c.applyNote?`<div class="ap-note"><b>${esc(c.applyNote[0])}</b>${rp(c.applyNote[1],'',95)}</div>`:''}</section>`;
+    else if(c.apply)h+=`<section><div class="sec-head"><h2>수업에 이렇게 씁니다</h2><small>${esc(c.applyLabel||'적용 예시')}</small></div>${c.applyIntro?`<div class="st-intro">${rp(c.applyIntro,'',100)}</div>`:''}<div class="apply">${c.apply.map(a=>`<div class="ap-card"><div class="ap-head"><span class="ap-tag">${esc(a.tag)}</span><small>${esc(a.type)}</small></div><b>${esc(a.title)}</b>${rp(a.desc,'',90)}<ol>${a.steps.map(x=>`<li><em>${esc(x[0])}</em><span>${rt(x[1])}</span></li>`).join('')}</ol></div>`).join('')}</div>${c.applyNote?`<div class="ap-note"><b>${esc(c.applyNote[0])}</b>${rp(c.applyNote[1],'',95)}</div>`:''}</section>`;
+    else h+=`<section><div class="sec-head"><h2>${esc(c.flowLabel||'수업에 이렇게 씁니다')}</h2></div><ol class="flow">${c.flow.map(x=>`<li>${esc(x)}</li>`).join('')}</ol></section>`;
+    if(c.insight){const q=c.insight;h+=`<section class="insight"><div class="am-k">${esc(q.k)}</div><h2>${esc(q.t)}</h2><div class="in-lead">${rp(q.lead,'',90)}</div><div class="in-case"><b>${esc(q.case)}</b><p>${esc(q.caseDesc)}</p><ol>${q.moves.map(m=>`<li><span>${esc(m[0])}</span><em>${esc(m[1])}</em></li>`).join('')}</ol></div><div class="in-tail">${rp(q.tail,'',90)}</div></section>`}
+    h+=`<section><div class="sec-head"><h2>${c.work?'기대 효과':'교육 효과'}</h2></div><div class="cs-eff">${c.effects.map(e=>`<div><b>${esc(e[0])}</b><p>${rt(e[1])}</p></div>`).join('')}</div></section>`;
+    h+=`<section class="cs-easy"><div class="am-k">EASY TO START</div><h2>다른 선생님도 바로 시작할 수 있어요</h2><ul>${c.easy.map(x=>`<li>${rt(x)}</li>`).join('')}</ul></section>`;
+    if(c.related){const r=CASES.find(x=>x.id===c.related.id);h+=`<a class="relcard" href="#case-${r.id}"><span class="am-k">${esc(c.related.label)}</span><b>${esc(r.title)}</b><p>${esc(c.related.text)}</p><span class="tmore">연계 수업 보기 →</span></a>`}
+    if(c.shots.length>1)h+=`<section><div class="sec-head"><h2>${esc(c.galLabel||'실제 화면')}</h2><small>눌러서 크게 보기</small></div><div class="gallery grid2">${c.shots.slice(1).map(s=>shot(s,true)).join('')}</div>${c.note?`<p class="note">${esc(c.note)}</p>`:''}</section>`;
+    if(c.classShots)h+=`<section><div class="sec-head"><h2>수업 사례</h2><small>눌러서 크게 보기</small></div><div class="gallery grid2">${c.classShots.map(s=>shot(s,true)).join('')}</div></section>`;
+    h+=`<div class="cta-box"><div class="kicker">LECTURE</div><h3>강의에서는</h3><p>${rt(c.pitch)}</p>${tp?`<a class="cta-topic" href="#topic-${tp.id}">연결 강의 · ${esc(tp.title)} →</a>`:''}<a class="btn btn-chalk" href="#inquiry" data-topic="${c.topic}">강의·연수 문의하기</a></div>`;
+    h+=`<nav class="d-nav" aria-label="다른 사례">${prev?`<a href="#case-${prev.id}"><small>← 이전</small>${esc(prev.title)}</a>`:'<span></span>'}${next?`<a class="next" href="#case-${next.id}"><small>다음 →</small>${esc(next.title)}</a>`:'<span></span>'}</nav><footer><span>Nam Gwanhui · Case Study</span><i>|</i><span>신평초등학교</span></footer>`;
+    $('detail').innerHTML=h;
+    document.title=c.title+' · 남관희 선생님 강의 프로필';
+  }
+  const topicCard=t=>`<article class="tcard"><div class="tmeta">${esc(t.meta)}</div>
+      <h3><a class="tcard-link" href="#topic-${t.id}">${esc(t.title)}</a></h3>${t.req?'<span class="reqb">요청 시 강의 제작 가능</span>':''}<p>${esc(t.line)}</p>
+      <div class="tfoot"><span class="tmore">자세히 보기 →</span><a class="tbook" href="#inquiry" data-topic="${t.cb}">강의 예약하기</a></div></article>`;
+  function renderTopicCards(){
+    $('topicCards').innerHTML=TOPICS.filter(t=>t.id==='start'||t.id==='office').map(topicCard).join('');
+  }
+  function renderMore(kind){
+    let h='';
+    if(kind==='cases'){
+      h=`<a class="back" href="#cases">← 프로필로 돌아가기</a><header class="d-head"><div class="eyebrow">Case Study</div><h1 class="d-title">모든 사례</h1><p class="d-sub">교실과 교무실에서 직접 만들어 써 본 ${CASES.length}가지</p></header>
+        <section><div class="sec-head"><h2>교실에서 써 본 것들</h2></div><div class="case-list">${CASES.filter(c=>c.group==='edu').map(caseRow).join('')}</div></section>
+        <section><div class="sec-head"><h2>교무실에서 써 본 것들</h2></div><div class="case-list">${CASES.filter(c=>c.group==='work').map(caseRow).join('')}</div></section>`;
+      document.title='모든 사례 · 남관희 선생님 강의 프로필';
+    }else{
+      h=`<a class="back" href="#topics">← 프로필로 돌아가기</a><header class="d-head"><div class="eyebrow">Lecture</div><h1 class="d-title">모든 강의 주제</h1><p class="d-sub">시간·대상·형태는 문의 주시면 맞춰 구성합니다</p></header>
+        <div class="tcards">${TOPICS.map(topicCard).join('')}</div>`;
+      document.title='모든 강의 주제 · 남관희 선생님 강의 프로필';
+    }
+    h+=`<footer><span>Nam Gwanhui</span><i>|</i><span>신평초등학교</span></footer>`;
+    $('detail').innerHTML=h;
+  }
+  function renderTopic(t){
+    const i=TOPICS.indexOf(t),prev=TOPICS[i-1],next=TOPICS[i+1];
+    const row=c=>{const thumb=c.shots?`<img src="${img(c.thumb||c.shots[0][0])}" alt="" loading="lazy">`:`<span>${esc(c.title[0])}</span>`;
+      const body=`<div class="thumb">${thumb}</div><div style="min-width:0"><div class="code">${esc(c.code)}</div><h3>${esc(c.title)}</h3><p>${esc(c.line)}</p></div>`;
+      return c.soon?`<div class="case-item soon">${body}<span class="badge">소개 준비 중</span></div>`:`<a class="case-item" href="#case-${c.id}">${body}<span class="arr" aria-hidden="true">→</span></a>`};
+    let h=`<div class="runhead"><span>Lecture Topic</span><i>|</i><span>${esc(t.title)}</span></div><a class="back" href="#${lastList==='more-topics'?'more-topics':'topics'}">← ${lastList==='more-topics'?'모든 강의 주제로':'프로필로'} 돌아가기</a>
+      <header class="t-hero"><div class="tmeta">${esc(t.meta)}</div><h1>${esc(t.title)}</h1>${t.req?'<span class="reqb">요청 시 강의 제작 가능</span>':''}<p class="tsub">${esc(t.sub)}</p><p class="d-lead">${esc(t.lead)}</p>
+      <a class="tbook" href="#inquiry" data-topic="${t.cb}">강의 예약하기</a></header>`;
+    if(t.facts)h+=`<div class="facts">${t.facts.map(f=>`<div><small>${esc(f[0])}</small><b>${esc(f[1])}</b></div>`).join('')}</div>`;
+    h+=`<section><div class="sec-head"><h2>이런 선생님께 추천해요</h2></div><ul class="for-list">${t.forWho.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></section>`;
+    if(t.chapters){
+      h+=`<section><div class="sec-head"><h2>강의 미리보기</h2><small>7개 장 · 2~3시간</small></div><div class="chaps">${t.chapters.map(c=>`<article class="chap">
+        <div class="chap-head"><span class="chap-n">${esc(c.n)}</span><h3>${esc(c.t)}</h3></div>
+        <figure class="slide"><img src="${img(c.img)}" alt="${esc(c.cap)}" data-cap="${esc(c.cap)}" loading="lazy"><figcaption>${esc(c.cap)}</figcaption></figure>
+        <p>${esc(c.h)}</p>
+        ${c.mission?`<div class="mission"><span>실전 미션</span>${esc(c.mission)}</div>`:''}
+        <div class="locks"><span class="lk">강의에서 공개</span>${c.lock.map(x=>`<span class="lock">${esc(x)}</span>`).join('')}</div></article>`).join('')}</div></section>`;
+      if(t.closing)h+=`<figure class="slide closing"><img src="${img(t.closing.img)}" alt="" data-cap="${esc(t.closing.text)}" loading="lazy"><figcaption>${esc(t.closing.text)}</figcaption></figure>`;
+      if(t.next)h+=`<div class="callout">${esc(t.next)}</div>`;
+    }
+    if(t.learn)h+=`<section><div class="sec-head"><h2>이런 내용을 다뤄요</h2></div><div class="feats">${t.learn.map(f=>`<div class="feat"><b>${esc(f[0])}</b><p>${esc(f[1])}</p></div>`).join('')}</div></section>`;
+    if(t.versions)h+=`<section><div class="sec-head"><h2>시간별 구성</h2><small>학교 상황에 맞춰 선택</small></div><div class="stages">${t.versions.map(v=>`<div class="stage"><b>${esc(v[0])}</b><span>${esc(v[2])}</span><ol style="list-style:none;padding-left:0"><li>${esc(v[1])}</li></ol></div>`).join('')}</div></section>`;
+    if(t.outline)h+=`<section><div class="sec-head"><h2>${t.outline.length>4?t.outline.length+'차시 구성과 산출물':'강의 구성 예시'}</h2><small>시간·대상에 맞춰 조정</small></div><ol class="flow">${t.outline.map(o=>`<li><span><b style="display:block;font-weight:600">${esc(o[0])}</b><span style="color:var(--muted);font-size:12px">${esc(o[1])}</span></span></li>`).join('')}</ol></section>`;
+    h+=`<section><div class="sec-head"><h2>함께 보는 현장 사례</h2><small>눌러서 실제 화면 보기</small></div><div class="case-list">${t.cases.map(id=>row(CASES.find(c=>c.id===id))).join('')}</div></section>`;
+    h+=`<div class="cta-box"><div class="kicker">LECTURE REQUEST</div><h3>이 주제로 강의를 예약하세요</h3><p>대상과 시간, 대면·온라인 형태는 문의 주시면 맞춰 구성합니다.</p><a class="btn btn-chalk" href="#inquiry" data-topic="${t.cb}">강의 예약하기</a></div>`;
+    h+=`<nav class="d-nav" aria-label="다른 주제">${prev?`<a href="#topic-${prev.id}"><small>← 이전 주제</small>${esc(prev.title)}</a>`:'<span></span>'}${next?`<a class="next" href="#topic-${next.id}"><small>다음 주제 →</small>${esc(next.title)}</a>`:'<span></span>'}</nav><footer><span>Nam Gwanhui · Lecture Topic</span><i>|</i><span>신평초등학교</span></footer>`;
+    $('detail').innerHTML=h;
+    document.title=t.title+' · 남관희 선생님 강의 프로필';
+  }
+  let savedY=0, busy=false;
+  function transition(fromEl,toEl,prepare,after){
+    busy=true;
+    fromEl.classList.add('out');
+    setTimeout(()=>{
+      fromEl.hidden=true; if(prepare)prepare();
+      toEl.classList.add('out'); toEl.hidden=false; if(after)after();
+      requestAnimationFrame(()=>requestAnimationFrame(()=>{toEl.classList.remove('out');busy=false}));
+    },reduce?0:320);
+  }
+  let lastList='';
+  function openInquiry(){const d=$('inqBox');if(d)d.open=true}
+  function route(){
+    if(!$('admin').hidden)return;
+    const h=decodeURIComponent(location.hash.slice(1));
+    const m=h.match(/^(case|topic)-([a-z0-9]+)$/);
+    const mm=h.match(/^more-(cases|topics)$/);
+    const prof=$('profile'),det=$('detail');
+    const visible=det.hidden?prof:det;
+    if(mm){if(visible===prof)savedY=window.scrollY;transition(visible,det,()=>{renderMore(mm[1]);lastList=h},()=>window.scrollTo(0,0));return}
+    if(m){
+      const c=m[1]==='case'?live.find(x=>x.id===m[2]):TOPICS.find(x=>x.id===m[2]);
+      if(c){if(visible===prof){savedY=window.scrollY;lastList=''}transition(visible,det,()=>m[1]==='case'?renderDetail(c):renderTopic(c),()=>window.scrollTo(0,0));return}
+    }
+    if(h==='inquiry')openInquiry();
+    if(visible===det){
+      lastList='';
+      transition(det,prof,()=>{document.title='남관희 선생님 강의 프로필'},()=>{const t=h&&document.getElementById(h);if(t)t.scrollIntoView();else window.scrollTo(0,savedY)});
+    }else if(h==='inquiry'){$('inquiry').scrollIntoView()}
+  }
+  window.addEventListener('hashchange',route);
+  document.addEventListener('click',e=>{
+    const a=e.target.closest('[data-topic]');if(a){const cb=$(a.dataset.topic);if(cb)cb.checked=true;openInquiry()}
+    if(e.target.closest('a[href="#inquiry"]')){openInquiry();if(location.hash==='#inquiry'&&!$('profile').hidden){e.preventDefault();$('inquiry').scrollIntoView({behavior:'smooth'})}}
+    const im=e.target.closest('.shot img, .slide img');
+    if(im){$('lbImg').src=im.src;$('lbImg').alt=im.alt;$('lbCap').textContent=im.dataset.cap||'';$('lightbox').hidden=false;$('lbClose').focus()}
+  });
+  const closeLb=()=>{$('lightbox').hidden=true};
+  $('lightbox').addEventListener('click',e=>{if(e.target.id!=='lbCap')closeLb()});
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!$('lightbox').hidden)closeLb()});
+  renderLists();renderTopicCards();
+  if(/^#(case|topic|more)-|^#inquiry$/.test(location.hash))route();
+
+  /* ---------- 달력 컴포넌트 ---------- */
+  function makeCal(root,{state,onPick,selected}){
+    const now=new Date(); const min=new Date(now.getFullYear(),now.getMonth(),1);
+    const max=new Date(now.getFullYear(),now.getMonth()+6,1);
+    let view=new Date(min);
+    function render(){
+      root.innerHTML='';
+      const head=document.createElement('div');head.className='cal-head';
+      const prev=document.createElement('button');prev.type='button';prev.className='cal-nav';prev.textContent='‹';prev.setAttribute('aria-label','이전 달');
+      const next=document.createElement('button');next.type='button';next.className='cal-nav';next.textContent='›';next.setAttribute('aria-label','다음 달');
+      prev.disabled=view<=min; next.disabled=view>=max;
+      prev.onclick=()=>{view=new Date(view.getFullYear(),view.getMonth()-1,1);render()};
+      next.onclick=()=>{view=new Date(view.getFullYear(),view.getMonth()+1,1);render()};
+      const t=document.createElement('b');t.textContent=`${view.getFullYear()}년 ${view.getMonth()+1}월`;
+      head.append(prev,t,next);
+      const grid=document.createElement('div');grid.className='cal-grid';
+      DOW.forEach((w,i)=>{const c=document.createElement('div');c.className='cal-dow'+(i===0?' sun':'');c.textContent=w;grid.appendChild(c)});
+      const first=new Date(view.getFullYear(),view.getMonth(),1).getDay();
+      const days=new Date(view.getFullYear(),view.getMonth()+1,0).getDate();
+      for(let i=0;i<first;i++){const b=document.createElement('span');b.className='day blank';grid.appendChild(b)}
+      for(let d=1;d<=days;d++){
+        const ds=view.getFullYear()+'-'+pad(view.getMonth()+1)+'-'+pad(d);
+        const st=state(ds);
+        const b=document.createElement('button');b.type='button';b.className='day '+(st.cls||'');
+        if(ds===today)b.classList.add('today');
+        if(selected()===ds)b.classList.add('sel');
+        b.disabled=!!st.disabled;
+        b.setAttribute('aria-label',fmtDate(ds)+(st.aria?', '+st.aria:''));
+        const n=document.createElement('span');n.textContent=d;b.appendChild(n);
+        if(st.mark){const m=document.createElement('span');m.className='mk';m.textContent=st.mark;b.appendChild(m)}
+        if(st.booked){const k=document.createElement('span');k.className='bk';b.appendChild(k)}
+        if(!st.disabled)b.onclick=()=>onPick(ds);
+        grid.appendChild(b);
+      }
+      root.append(head,grid);
+    }
+    render();
+    return {render};
+  }
+
+  /* ---------- 방문자: 희망 일정 ---------- */
+  let selDate=null,selTime=null;
+  const visCal=makeCal($('visCal'),{
+    selected:()=>selDate,
+    state:ds=>{
+      if(ds<today) return {disabled:true};
+      const open=openTimes(ds), free=freeTimes(ds);
+      if(!open.length) return {disabled:true};
+      if(!free.length) return {disabled:true,mark:'마감',aria:'마감'};
+      return {cls:'clickable open',mark:String(free.length),aria:`예약 가능 ${free.length}개`};
+    },
+    onPick:ds=>{selDate=ds;selTime=null;$('dateTbd').checked=false;$('dateText').hidden=true;visCal.render();renderVisSlots()}
+  });
+  function renderVisSlots(){
+    const list=$('visSlotList'),note=$('visSlotNote');list.innerHTML='';
+    if(!schedLoaded){note.textContent=API_URL?'예약 가능 일정을 불러오는 중이에요.':'이 화면에서는 예약 가능 일정을 불러올 수 없어요. ‘일정은 따로 협의’를 고르고 희망 시기를 적어 주세요.';return}
+    if(!Object.keys(sched.open).some(d=>d>=today&&freeTimes(d).length)){note.textContent='지금은 열린 일정이 없어요. ‘일정은 따로 협의’를 고르고 희망 시기를 적어 주세요.';return}
+    if(!selDate){note.textContent='달력에서 날짜를 고르면 예약 가능한 시간이 나와요.';return}
+    note.textContent=fmtDate(selDate)+' 시간을 골라 주세요.';
+    const bk=bookedOf(selDate);
+    openTimes(selDate).forEach(t=>{
+      const b=document.createElement('button');b.type='button';b.textContent=t;b.setAttribute('role','radio');
+      if(bk[t]){b.className='slot taken';b.disabled=true;b.setAttribute('aria-label',t+' 마감')}
+      else{b.className='slot'+(selTime===t?' on':'');b.setAttribute('aria-checked',selTime===t);b.onclick=()=>{selTime=t;renderVisSlots()}}
+      list.appendChild(b);
+    });
+    if(freeTimes(selDate).indexOf(selTime)<0)selTime=null;
+  }
+  $('dateTbd').addEventListener('change',e=>{
+    $('dateText').hidden=!e.target.checked;
+    if(e.target.checked){selDate=null;selTime=null;visCal.render();renderVisSlots();$('dateText').focus()}
+  });
+  renderVisSlots();
+
+  /* ---------- 문의 폼 ---------- */
+  const form=$('inqForm'),err=$('formErr');
+  const DRAFT='inq-draft', ids=['org','person','contact','audience','dateText','size','mode','msg'];
+  try{const d=JSON.parse(localStorage.getItem(DRAFT)||'null');if(d)ids.forEach(k=>{if(d[k]!=null)$(k).value=d[k]})}catch(e){}
+  let dt;form.addEventListener('input',()=>{clearTimeout(dt);dt=setTimeout(()=>{try{const d={};ids.forEach(k=>d[k]=$(k).value);localStorage.setItem(DRAFT,JSON.stringify(d))}catch(e){}},400)});
+
+  function collect(){
+    const tbd=$('dateTbd').checked;
+    return {org:$('org').value.trim(),person:$('person').value.trim(),contact:$('contact').value.trim(),audience:$('audience').value,
+      topics:[...document.querySelectorAll('#topicPills input:checked')].map(i=>i.value),
+      date:tbd?null:selDate,time:tbd?null:selTime,dateNote:tbd?$('dateText').value.trim():'',
+      size:$('size').value?Number($('size').value):null,mode:$('mode').value,msg:$('msg').value.trim(),
+      status:'new',createdAt:new Date().toISOString()};
+  }
+  const whenText=q=>q.date?`${fmtDate(q.date)} ${q.time}`:('협의'+(q.dateNote?' — '+q.dateNote:''));
+  const asText=q=>`[강의 예약 문의] ${q.org}\n담당자: ${q.person}\n연락처: ${q.contact}\n대상: ${q.audience}\n희망 일정: ${whenText(q)}\n주제: ${q.topics.join(', ')||'-'}\n인원: ${q.size||'-'}\n형태: ${q.mode}\n요청 사항: ${q.msg||'-'}`;
+  function showDone(ok,q){
+    form.hidden=true;$('doneBox').hidden=false;
+    if(ok){$('doneTitle').textContent='예약 문의가 접수되었어요';
+      $('doneText').textContent=`${q.person}님, 희망 일정 ${whenText(q)}로 접수했어요. 강사가 확인 후 ${q.contact}(으)로 연락드리고, 연락을 받으면 예약이 확정돼요.`;
+      $('copyText').hidden=true;$('copyBtn').hidden=true;}
+    else{$('doneTitle').textContent='이 화면에서는 문의를 바로 저장할 수 없어요';
+      $('doneText').textContent='아래 내용을 복사해 강사에게 메시지나 메일로 보내 주세요.';
+      $('copyText').textContent=asText(q);$('copyText').hidden=false;$('copyBtn').hidden=false;}
+    $('doneBox').scrollIntoView({behavior:'smooth',block:'center'});
+  }
+  $('copyBtn').addEventListener('click',()=>{
+    const txt=$('copyText').textContent;
+    const fallback=()=>{const r=document.createRange();r.selectNodeContents($('copyText'));const s=getSelection();s.removeAllRanges();s.addRange(r);$('copyBtn').textContent='선택됨 — 직접 복사해 주세요'};
+    try{navigator.clipboard.writeText(txt).then(()=>{$('copyBtn').textContent='복사됨'}).catch(fallback)}catch(e){fallback()}
+  });
+  $('againBtn').addEventListener('click',()=>{form.reset();selDate=null;selTime=null;$('dateText').hidden=true;visCal.render();renderVisSlots();form.hidden=false;$('doneBox').hidden=true;$('copyBtn').textContent='내용 복사'});
+
+  form.addEventListener('submit',async e=>{
+    e.preventDefault();err.hidden=true;
+    const q=collect(),miss=[];
+    if(!q.org)miss.push('기관·학교명');if(!q.person)miss.push('담당자 성함');if(!q.contact)miss.push('연락처');
+    if(miss.length){err.textContent=miss.join(', ')+'을(를) 입력해 주세요.';err.hidden=false;return}
+    if(!$('dateTbd').checked&&!(q.date&&q.time)){err.textContent='달력에서 날짜와 시간을 고르거나 ‘일정은 따로 협의’를 선택해 주세요.';err.hidden=false;return}
+    if(!$('agree').checked){err.textContent='개인정보 수집에 동의해야 문의를 보낼 수 있어요.';err.hidden=false;return}
+    const btn=$('submitBtn');btn.disabled=true;btn.textContent='보내는 중…';
+    let ok=false;
+    if(API_URL){
+      try{
+        const r=await api({action:'submit',inquiry:q});
+        if(r.schedule){sched={open:{...(r.schedule.open||{})},booked:{...(r.schedule.booked||{})}};schedLoaded=true;visCal.render();renderVisSlots()}
+        ok=true;
+      }catch(x){
+        if(x.code==='slot_taken'){btn.disabled=false;btn.textContent='예약 문의 보내기';err.textContent='방금 마감된 시간이에요. 다른 시간을 골라 주세요.';err.hidden=false;selTime=null;loadSchedule();return}
+      }
+    }
+    btn.disabled=false;btn.textContent='예약 문의 보내기';
+    if(ok){try{localStorage.removeItem(DRAFT)}catch(e){}}
+    showDone(ok,q);
+  });
+
+  /* ---------- 문의함 진입 (비밀번호) ---------- */
+  let gateMode='login';
+  async function prepareGate(){
+    $('gateErr').hidden=true;$('pw1').value='';$('pw2').value='';$('pw2wrap').hidden=true;
+    if(!API_URL){gateMode='none';$('gateTitle').textContent='문의함을 열 수 없어요';$('gateNote').textContent='사이트 설정(API_URL)이 아직 연결되지 않았어요.';$('pw1wrap').hidden=true;$('gateBtn').hidden=true;return}
+    $('pw1wrap').hidden=false;$('gateBtn').hidden=false;
+    gateMode='login';$('gateTitle').textContent='비밀번호 입력';$('gateNote').textContent='강사만 들어갈 수 있어요.';$('pw1lbl').textContent='비밀번호';$('gateBtn').textContent='입장하기';
+  }
+  $('inboxBanner').addEventListener('click',async()=>{
+    const g=$('gate'),open=g.hidden;
+    if(open){await prepareGate();g.hidden=false;$('inboxBanner').setAttribute('aria-expanded','true');if(!$('pw1wrap').hidden)$('pw1').focus()}
+    else{g.hidden=true;$('inboxBanner').setAttribute('aria-expanded','false')}
+  });
+  $('gate').addEventListener('submit',async e=>{
+    e.preventDefault();const ge=$('gateErr');ge.hidden=true;
+    const pw=$('pw1').value;
+    const fail=m=>{ge.textContent=m;ge.hidden=false};
+    if(gateMode!=='login')return;
+    if(!pw)return fail('비밀번호를 입력해 주세요.');
+    const btn=$('gateBtn');btn.disabled=true;
+    try{const r=await api({action:'login',password:pw});token=r.token;try{sessionStorage.setItem('inq-token',token)}catch(x){}enterAdmin()}
+    catch(x){fail(x.code==='bad_password'?'비밀번호가 맞지 않아요.':x.code==='no_password'?'앱스 스크립트에서 setup을 먼저 실행해 주세요.':x.code==='too_many'?'잠시 후 다시 시도해 주세요.':'연결하지 못했어요. 잠시 후 다시 시도해 주세요.')}
+    finally{btn.disabled=false}
+  });
+
+  /* ---------- 관리 화면 ---------- */
+  let inqTimer=null, all=[], admDate=null;
+  async function loadInbox(){
+    try{const r=await api({action:'list',token});all=r.inquiries||[];
+      if(r.schedule){sched={open:{...(r.schedule.open||{})},booked:{...(r.schedule.booked||{})}};schedLoaded=true}
+      renderInbox();admCal.render();renderDay();}
+    catch(x){if(x.code==='auth'){token=null;try{sessionStorage.removeItem('inq-token')}catch(e){}leaveAdmin(true);admMsg('');alert('로그인이 만료됐어요. 다시 입장해 주세요.')}else admMsg('문의 목록을 불러오지 못했어요. 잠시 후 다시 시도해 주세요.')}
+  }
+  function enterAdmin(){
+    $('gate').hidden=true;$('inboxBanner').setAttribute('aria-expanded','false');$('pw1').value='';$('pw2').value='';
+    $('profile').hidden=true;$('detail').hidden=true;$('admin').hidden=false;window.scrollTo(0,0);
+    renderInbox();admCal.render();renderDay();loadInbox();
+    if(!inqTimer)inqTimer=setInterval(()=>{if(!$('admin').hidden&&!document.hidden)loadInbox()},60000);
+  }
+  function leaveAdmin(lock){
+    $('admin').hidden=true;$('profile').hidden=false;
+    if(lock){if(inqTimer){clearInterval(inqTimer);inqTimer=null}all=[];$('inqList').innerHTML='';if(token){api({action:'logout',token}).catch(()=>{});token=null;try{sessionStorage.removeItem('inq-token')}catch(e){}}}
+    $('inboxBanner').scrollIntoView({block:'center'});
+  }
+  $('backBtn').onclick=()=>leaveAdmin(true);
+  $('lockBtn').onclick=()=>leaveAdmin(true);
+  function admMsg(m){const el=$('admMsg');el.textContent=m;el.hidden=!m;if(m)setTimeout(()=>{if(el.textContent===m)el.hidden=true},6000)}
+  function selectTab(which){
+    const inq=which==='inq';
+    $('tabInq').setAttribute('aria-selected',inq);$('tabSch').setAttribute('aria-selected',!inq);
+    $('panelInq').hidden=!inq;$('panelSch').hidden=inq;
+  }
+  $('tabInq').onclick=()=>selectTab('inq');$('tabSch').onclick=()=>selectTab('sch');
+
+  function renderInbox(){
+    const list=$('inqList'),c={new:0,contacted:0,confirmed:0,closed:0};all.forEach(i=>c[i.status]=(c[i.status]||0)+1);
+    $('counts').innerHTML='';Object.keys(STATUS).forEach(k=>{const s=document.createElement('span');s.className='count';s.textContent=`${STATUS[k]} ${c[k]||0}`;$('counts').appendChild(s)});
+    list.innerHTML='';
+    if(!all.length){list.innerHTML='<p class="note">아직 들어온 문의가 없어요. 방문자가 예약 문의를 남기면 여기에 쌓여요.</p>';return}
+    [...all].sort((a,b)=>b.createdAt.localeCompare(a.createdAt)).forEach(i=>{
+      const el=document.createElement('div');el.className='inq st-'+i.status;
+      const top=document.createElement('div');top.className='inq-top';
+      const b=document.createElement('b');b.textContent=`${i.org} · ${i.person}`;
+      const sel=document.createElement('select');sel.id='st-'+i.id;sel.setAttribute('aria-label','상태');
+      Object.entries(STATUS).forEach(([k,v])=>{const o=document.createElement('option');o.value=k;o.textContent=v;if(k===i.status)o.selected=true;sel.appendChild(o)});
+      sel.onchange=()=>setStatus(i,sel.value,sel);
+      top.append(b,sel);
+      const w=document.createElement('p');w.className='when';w.textContent='희망 일정 · '+whenText(i);
+      const p1=document.createElement('p');p1.textContent=`${i.contact} · ${i.audience} · ${i.mode||'-'} · ${i.size?i.size+'명':'인원 미정'}`;
+      const p2=document.createElement('p');p2.textContent=`주제: ${(i.topics||[]).join(', ')||'-'}${i.msg?' — '+i.msg:''}`;
+      const p3=document.createElement('p');p3.textContent='접수 '+new Date(i.createdAt).toLocaleString('ko-KR',{dateStyle:'medium',timeStyle:'short'});
+      el.append(top,w,p1,p2,p3);list.appendChild(el);
+    });
+  }
+  async function setStatus(i,st,selEl){
+    const key=i.id;
+    if(i.date&&i.time){
+      const holder=bookedOf(i.date)[i.time];
+      if(st==='confirmed'){
+        if(holder&&holder!==key){admMsg(`${fmtDate(i.date)} ${i.time}은(는) 이미 다른 문의로 확정됐어요.`);selEl.value=i.status;return}
+        if(!openTimes(i.date).includes(i.time)){sched.open[i.date]=[...openTimes(i.date),i.time].sort()}
+        sched.booked[i.date]={...bookedOf(i.date),[i.time]:key};
+      }else if(holder===key){
+        const b={...bookedOf(i.date)};delete b[i.time];
+        if(Object.keys(b).length)sched.booked[i.date]=b;else delete sched.booked[i.date];
+      }
+    }
+    try{await api({action:'setStatus',token,id:i.id,status:st,schedule:{open:sched.open,booked:sched.booked}});i.status=st;renderInbox();admCal.render();renderDay();visCal.render();renderVisSlots()}
+    catch(e){admMsg('상태를 저장하지 못했어요. 다시 시도해 주세요.');selEl.value=i.status;loadInbox()}
+  }
+
+  /* 일정 저장: 한 번에 하나씩, 마지막 상태를 씀 */
+  let saving=false,dirty=false;
+  async function saveSched(){
+    dirty=true;if(saving)return;saving=true;
+    const st=$('saveState');
+    while(dirty){dirty=false;
+      try{await api({action:'saveSchedule',token,schedule:{open:sched.open,booked:sched.booked}});st.textContent='저장됨';st.hidden=false}
+      catch(e){admMsg('일정을 저장하지 못했어요. 새로고침 후 다시 시도해 주세요.')}}
+    saving=false;
+  }
+  function setOpen(d,times){
+    const t=[...new Set(times)].sort();
+    if(t.length)sched.open[d]=t;else delete sched.open[d];
+    admCal.render();renderDay();visCal.render();renderVisSlots();saveSched();
+  }
+
+  const admCal=makeCal($('admCal'),{
+    selected:()=>admDate,
+    state:ds=>{
+      if(ds<today)return {disabled:true};
+      const free=freeTimes(ds).length,bk=Object.keys(bookedOf(ds)).length;
+      return {cls:'clickable'+(openTimes(ds).length?' open':''),mark:free?String(free):'',booked:bk>0,aria:`열린 시간 ${free}개${bk?', 확정 '+bk+'건':''}`};
+    },
+    onPick:ds=>{admDate=ds;admCal.render();renderDay()}
+  });
+  function renderDay(){
+    const wrap=$('admSlots');wrap.innerHTML='';$('dayReqs').innerHTML='';
+    if(!admDate){$('dayTitle').textContent='날짜를 골라 주세요';$('dayHint').hidden=false;$('addTimeRow').hidden=true;$('dayBtns').hidden=true;return}
+    $('dayTitle').textContent=fmtDate(admDate);$('dayHint').hidden=false;
+    $('dayHint').textContent='누른 시간이 열리거나 닫히고 바로 저장돼요. 노란 시간은 확정된 예약이라 바꿀 수 없어요.';
+    $('addTimeRow').hidden=false;$('dayBtns').hidden=false;
+    const open=openTimes(admDate),bk=bookedOf(admDate);
+    const times=[...new Set([...DEFAULT_TIMES,...open,...Object.keys(bk)])].sort();
+    times.forEach(t=>{
+      const b=document.createElement('button');b.type='button';b.textContent=t;
+      if(bk[t]){b.className='slot booked';b.title='확정된 예약';b.setAttribute('aria-label',t+' 확정됨');b.onclick=()=>admMsg('확정된 시간은 문의 관리에서 상태를 바꾼 뒤 닫을 수 있어요.')}
+      else{const on=open.includes(t);b.className='slot'+(on?' on':'');b.setAttribute('aria-pressed',on);
+        b.onclick=()=>setOpen(admDate,on?open.filter(x=>x!==t):[...open,t])}
+      wrap.appendChild(b);
+    });
+    const reqs=all.filter(i=>i.date===admDate);
+    if(reqs.length){
+      const h=document.createElement('p');h.className='lbl';h.textContent='이 날 들어온 문의';$('dayReqs').appendChild(h);
+      reqs.forEach(i=>{const p=document.createElement('p');p.className='note';p.textContent=`${i.time} · ${i.org} ${i.person} · ${STATUS[i.status]}`;$('dayReqs').appendChild(p)});
+    }
+  }
+  $('addTimeBtn').onclick=()=>{const v=$('newTime').value;if(!v||!admDate)return;setOpen(admDate,[...openTimes(admDate),v]);$('newTime').value=''};
+  $('openAllBtn').onclick=()=>admDate&&setOpen(admDate,[...openTimes(admDate),...DEFAULT_TIMES]);
+  $('clearDayBtn').onclick=()=>{if(!admDate)return;const bk=Object.keys(bookedOf(admDate));setOpen(admDate,openTimes(admDate).filter(t=>bk.includes(t)));if(bk.length)admMsg('확정된 예약 시간은 남겨 두었어요.')};
+  $('copyWeekBtn').onclick=()=>{
+    if(!admDate)return;const pattern=openTimes(admDate);if(!pattern.length){admMsg('먼저 이 날에 열 시간을 골라 주세요.');return}
+    const [y,m]=admDate.split('-').map(Number);const last=new Date(y,m,0).getDate();let n=0;
+    for(let d=1;d<=last;d++){const dt=new Date(y,m-1,d),ds=ymd(dt),w=dt.getDay();if(ds<=admDate||ds<today||w===0||w===6)continue;
+      sched.open[ds]=[...new Set([...(sched.open[ds]||[]),...pattern])].sort();n++}
+    admCal.render();renderDay();visCal.render();renderVisSlots();saveSched();
+    $('saveState').textContent=`이번 달 남은 평일 ${n}일에 같은 시간을 열었어요.`;$('saveState').hidden=false;
+  };
+  $('pwChange').addEventListener('submit',async e=>{
+    e.preventDefault();const a=$('npw1').value,b=$('npw2').value,m=$('pwMsg');
+    if(a.length<4){m.textContent='4자 이상으로 정해 주세요.';return}
+    if(a!==b){m.textContent='두 비밀번호가 서로 달라요.';return}
+    try{await api({action:'changePassword',token,password:a});m.textContent='비밀번호를 바꿨어요.';$('npw1').value='';$('npw2').value=''}catch(x){m.textContent='바꾸지 못했어요. 다시 시도해 주세요.'}
+  });
+
+  /* ---------- 연결 ---------- */
+  async function loadSchedule(){
+    if(!API_URL){renderVisSlots();return}
+    try{const r=await fetch(API_URL+'?action=schedule');const j=await r.json();
+      if(j.ok){sched={open:{...(j.schedule.open||{})},booked:{...(j.schedule.booked||{})}};schedLoaded=true}}
+    catch(e){schedLoaded=false}
+    visCal.render();renderVisSlots();
+  }
+  loadSchedule();
+  try{token=sessionStorage.getItem('inq-token')}catch(e){}
+})();
+</script>
+</body>
+</html>
