@@ -563,6 +563,15 @@ a.case-item:hover h3{text-decoration:underline;text-underline-offset:3px}
 [hidden]{display:none!important}
 html{-webkit-text-size-adjust:100%}
 body{margin:0}
+.cv-sub{margin-top:8px;padding-top:8px;border-top:1px dashed var(--line)}
+.cv-org{display:table;margin-bottom:4px;font-size:11px;font-weight:700;letter-spacing:.04em;color:var(--bronze-hi);border:1px solid var(--bronze-hi);border-radius:999px;padding:1px 8px;margin-right:8px;vertical-align:1px}
+.cv-sub a{color:inherit;text-decoration:underline;text-underline-offset:3px;text-decoration-color:var(--bronze-hi)}
+.cv-badge{margin-top:6px}
+.drop .cv-badge summary{cursor:pointer;font-size:12px;color:var(--muted);list-style:none;display:inline-flex;align-items:center;gap:4px;padding:0}
+.cv-badge summary::-webkit-details-marker{display:none}
+.cv-badge summary::before{content:"▸";transition:transform .2s}
+.cv-badge[open] summary::before{transform:rotate(90deg)}
+.cv-badge img{display:block;width:180px;max-width:100%;height:auto;margin-top:8px;border-radius:10px;box-shadow:0 4px 14px rgba(0,0,0,.25)}
 </style>
 </head>
 <body>
@@ -601,7 +610,9 @@ body{margin:0}
           <dt>수업</dt><dd>지구 공개수업<small>너른강 공개수업 2024 · 2026 · 브릿지 공개수업 2025</small></dd>
           <dt>개발</dt><dd>14종 이상의 학급 웹앱 플랫폼<small><a href="#cases">대표 사례 참조</a></small></dd>
           <dt>강의</dt><dd>티쳐스 클로딩 1강<small>교직에 AI 클로드 녹여내기</small></dd>
-          <dt>연수 자격</dt><dd>광주하남 AI리더 연수 수료<br>캔바코리아 공식 연수 수료</dd>
+          <dt>연수 자격</dt><dd>광주하남 AI리더 연수 수료<br>캔바코리아 공식 연수 수료
+            <div class="cv-sub"><span class="cv-org">Anthropic</span><a href="https://academy.claude.com/ko/courses/ai-fluency-for-k-12-educators" target="_blank" rel="noopener">AI Fluency for pK–12 educators</a>
+              <details class="cv-badge"><summary>수료 배지 보기</summary><img src="shots/badge-aif.jpg" alt="Claude Academy AI Fluency for pK–12 educators 수료 배지" loading="lazy"></details></div></dd>
         </dl>
       </div>
     </details>
