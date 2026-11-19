@@ -567,6 +567,7 @@ body{margin:0}
 .cv-org{display:table;margin-bottom:4px;font-size:11px;font-weight:700;letter-spacing:.04em;color:var(--bronze-hi);border:1px solid var(--bronze-hi);border-radius:999px;padding:1px 8px;margin-right:8px;vertical-align:1px}
 .cv-sub a{color:inherit;text-decoration:underline;text-underline-offset:3px;text-decoration-color:var(--bronze-hi)}
 .cv-badge{margin-top:6px}
+.cv-item+.cv-item{margin-top:8px}
 .drop .cv-badge summary{cursor:pointer;font-size:12px;color:var(--muted);list-style:none;display:inline-flex;align-items:center;gap:4px;padding:0}
 .cv-badge summary::-webkit-details-marker{display:none}
 .cv-badge summary::before{content:"▸";transition:transform .2s}
@@ -611,8 +612,10 @@ body{margin:0}
           <dt>개발</dt><dd>14종 이상의 학급 웹앱 플랫폼<small><a href="#cases">대표 사례 참조</a></small></dd>
           <dt>강의</dt><dd>티쳐스 클로딩 1강<small>교직에 AI 클로드 녹여내기</small></dd>
           <dt>연수 자격</dt><dd>광주하남 AI리더 연수 수료<br>캔바코리아 공식 연수 수료
-            <div class="cv-sub"><span class="cv-org">Anthropic</span><a href="https://academy.claude.com/ko/courses/ai-fluency-for-k-12-educators" target="_blank" rel="noopener">AI Fluency for pK–12 educators</a>
-              <details class="cv-badge"><summary>수료 배지 보기</summary><img src="shots/badge-aif.jpg" alt="Claude Academy AI Fluency for pK–12 educators 수료 배지" loading="lazy"></details></div></dd>
+            <div class="cv-sub"><span class="cv-org">Anthropic</span>
+              <div class="cv-item">AI Fluency for pK–12 educators 수료
+              <details class="cv-badge"><summary>수료 배지 보기</summary><img src="shots/badge-aif.jpg" alt="AI Fluency for pK–12 educators 수료 배지" loading="lazy"></details></div>
+              <div class="cv-item">AI Fluency for educators 수료</div></div></dd>
         </dl>
       </div>
     </details>
